@@ -8,7 +8,7 @@ const Headline = () => {
 
           <div className='flex justify-center items-center gap-2'>
           <FaPhoneAlt className='text-xl' />
-          <h2 className="text-lg hover:text-[#F3FF90] font-bold"> +880 174 000 666</h2>
+          <h2 className="text-md hover:text-[#F3FF90] font-bold"> +880 174 000 666</h2>
           </div>
 
           <div className='flex justify-center items-center gap-4'>
