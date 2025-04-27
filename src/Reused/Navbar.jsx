@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import logo from "../assets/images/logo.png";
 import { Link } from "react-router";
 import { MdClose, MdMenu } from "react-icons/md";
+import "./customBtn.css"
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState("false");
+  const btnRef = useRef(null);
   const onToggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleMouseMove = (e) => {
+    const rect = btnRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    btnRef.current.style.setProperty('--x', `${x}px`);
+    btnRef.current.style.setProperty('--y', `${y}px`);
   };
 
   return (
@@ -43,8 +53,11 @@ const Navbar = () => {
 
       <div className="flex justify-center items-center gap-2">
         <Link>
-          <button className="btn font-light bg-[#059212] text-white border-0 hover:bg-green-500 rounded-full">
-            Sign in
+          <button className="btn myBtn font-light bg-linear-to-r from-[#059212] to-[#9BEC00] text-white hover:border-0  rounded-full"
+           onMouseMove={handleMouseMove}
+           ref={btnRef}
+          >
+            <span>Sign in</span>
           </button>
         </Link>
 

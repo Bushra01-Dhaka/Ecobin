@@ -1,0 +1,41 @@
+.myBtn {
+    position: relative;
+    display: inline-flex;
+    letter-spacing: 1px;
+    overflow: hidden;
+ }
+ 
+ .myBtn span {
+     position: relative;
+     z-index: 1;
+ }
+ 
+ .myBtn::before {
+     content: "";
+     position: absolute;
+     top: var(--y);
+     left: var(--x);
+     width: 0px;
+     height: 0px;
+     border-radius: 50%;
+     background-color: #059212;
+     transform: translate(-50%, -50%);
+     transition: width 0.5s , height 0.5s ;
+ }
+ 
+ .myBtn:hover::before {
+     width: 300px;
+     height: 300px;
+ }
+ 
+
+/* <script>
+ const myBtn = document.querySelector('.myBtn');
+ btn.onmousemove = function(e){
+    const x = e.pageX btn.offsetLeft;
+    const y = e.pageY btn.offsetTop;
+
+    myBtn.style.setProperty('--x', x = 'px');
+    myBtn.style.setProperty('--y', y = 'px');
+ }
+</script> */
