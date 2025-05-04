@@ -2,7 +2,8 @@
 @plugin "daisyui";
 
 *{
-    font-family: "Special Gothic", sans-serif;
+    /* font-family: "Special Gothic", sans-serif; */
+    font-family: "Inter", sans-serif;
 }
 html,
 body {

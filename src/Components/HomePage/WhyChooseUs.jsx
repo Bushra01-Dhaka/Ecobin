@@ -8,11 +8,11 @@ import { motion } from "framer-motion";
 const WhyChooseUs = () => {
   return (
     <div className="md:px-10 px-6 flex flex-col-reverse lg:flex-row justify-center items-center py-10 lg:gap-8">
-      <div className="w-[100%] lg:h-auto lg:mx-auto">
+      <div className="flex-1 w-[100%] lg:h-auto lg:mx-auto">
          <img className="" src={img} alt="" />
-         <img className="md:hidden lg:block block relative right-[-200px] top-[-200px] rounded-lg shadow-2xl" src={img1} alt="" />
+         <img className="md:hidden lg:block block relative right-[-330px] top-[-250px] rounded-lg shadow-2xl border-r-4 border-b-4 border-[#059212]" src={img1} alt="" />
       </div>
-      <div className="pb-10 lg:p-8 p-4">
+      <div className="flex-1 pb-10 lg:p-8 p-4">
         <p className="py-4 text-[#059212] text-lg font-bold">Why Choose Us</p>
         <h1 className="font-bold text-4xl">
           Why choose our Ecobin services
