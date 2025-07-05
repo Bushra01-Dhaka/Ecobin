@@ -36,10 +36,10 @@ const CustomerSupportBanner = () => {
         </div>
       </div>
 
-      <div className="py-20 bg-linear-to-r from-[#059212] to-[#9BEC00] text-white flex justify-between items-start  lg:px-10 px-6 rounded-lg lg:max-w-[1200px] lg:relative top-[-120px] mx-auto shadow-2xl">
-        <div>
-          <p className="py-4">Recycle Materials</p>
-          <h2 className="text-5xl md:max-w-md font-bold">
+      <div className="py-20 bg-linear-to-r from-[#059212] to-[#9BEC00] text-white flex flex-col lg:flex-row justify-between items-start  lg:px-10 px-6 rounded-lg lg:max-w-[1200px] lg:relative top-[-120px] mx-auto shadow-2xl">
+        <div className="lg:py-0 py-6">
+          <p className="py-4 text-center lg:text-justify">Recycle Materials</p>
+          <h2 className="lg:text-5xl text-4xl  text-center lg:text-justify  lg:max-w-[500px] font-bold">
             We collect, recycle & disposal all materials
           </h2>
         </div>
@@ -93,6 +93,8 @@ const CustomerSupportBanner = () => {
             </ul>
         </div>
       </div>
+
+
     </div>
   );
 };
