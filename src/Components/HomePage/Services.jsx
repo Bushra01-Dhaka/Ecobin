@@ -1,4 +1,3 @@
-import React from "react";
 import ServiceSlider from "./ServiceSlider";
 const Services = () => {
   return (

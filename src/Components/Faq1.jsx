@@ -58,14 +58,14 @@ const Faq = () => {
         </p>
       </div>
 
-      <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 ">
         {faqs.map((faq, index) => (
           <div
             key={index}
             className="p-6 border rounded-2xl border-[#059212]"
           >
             <div className="flex justify-between items-center cursor-pointer" onClick={() => toggleFAQ(index)}>
-              <p className="text-xl">{faq.question}</p>
+              <p className="text-xl text-slate-800">{faq.question}</p>
               {openIndex === index ? (
                 <FiMinus className="text-2xl font-light" />
               ) : (

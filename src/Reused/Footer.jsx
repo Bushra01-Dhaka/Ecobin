@@ -5,7 +5,7 @@ import { RiMapPin2Fill } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <div className="px-6 py-10 lg:px-8 bg-[#1a6322] text-white grid grid-cols-1 lg:grid-cols-4 gap-8 mt-10">
+    <div className="px-6 py-10 lg:px-8 bg-linear-to-r from-[#1a6322] to-[#059212] text-white grid grid-cols-1 lg:grid-cols-4 gap-8 mt-10">
       <div>
         <div className="flex justify-start items-center">
           <img

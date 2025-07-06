@@ -1,0 +1,44 @@
+[
+  {
+    "service_no": "SVC001",
+    "image": "https://i.ibb.co/HTyNZgx8/2.png",
+    "service_title": "Residential Waste Collection",
+    "service_short_description": "Eco-friendly door-to-door waste pickup for households.",
+    "service_details": "Our residential waste collection service ensures timely, hygienic, and eco-friendly pickup of daily household garbage. With flexible weekly or monthly plans, EcoBin takes full responsibility for keeping your home environment clean and waste-free."
+  },
+  {
+    "service_no": "SVC002",
+    "image": "https://i.ibb.co/JRKY8qZg/5.png",
+    "service_title": "Commercial Waste Management",
+    "service_short_description": "Custom waste solutions for businesses and offices.",
+    "service_details": "EcoBin provides scalable and reliable waste management solutions for businesses including shops, restaurants, corporate offices, and malls. We offer scheduled pickups, and recycling support tailored to your business needs. "
+  },
+  {
+    "service_no": "SVC003",
+    "image": "https://i.ibb.co/JjZ46kC8/7.png",
+    "service_title": "Medical & Pharmaceutical Waste Disposal",
+    "service_short_description": "Safe disposal of medical and biohazard waste.",
+    "service_details": "EcoBin follows strict protocols for the safe handling and disposal of medical and pharmaceutical waste. We serve hospitals, clinics, and labs, ensuring sterilized, and disposed of responsibly."
+  },
+  {
+    "service_no": "SVC004",
+    "image": "https://i.ibb.co/bMJqRpQq/construction-Rubbish.jpg",
+    "service_title": "Construction & Demolition Waste",
+    "service_short_description": "Efficient disposal of construction and demolition debris.",
+    "service_details": "EcoBin manages waste from construction and demolition sites including bricks, concrete, wood, and metal. We offer both regular and mutual benefit plans for timely, safe, and sustainable project waste disposal."
+  },
+  {
+    "service_no": "SVC005",
+    "image": "https://i.ibb.co/spG4zbDx/land-Filling.jpg",
+    "service_title": "Land Filling Service",
+    "service_short_description": "Professional land filling with optional material supply.",
+    "service_details": "EcoBin provides efficient landfilling services using soil, rubble, and other fill materials. Book in advance to enjoy special rates under our mutual benefit plan, with optional material supply."
+  },
+  {
+    "service_no": "SVC006",
+    "image": "https://i.ibb.co/0phmsdFr/s2.jpg",
+    "service_title": "Industrial Waste Management",
+    "service_short_description": "Heavy-duty waste collection for factories and production sites.",
+    "service_details": "Our industrial waste services support factories, warehouses, and plants with safe collection, handling, and disposal of all waste types. We handle materials using eco-safe practices and scalable plans."
+  }
+]
