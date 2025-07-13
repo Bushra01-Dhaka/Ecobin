@@ -26,7 +26,7 @@ const Features = () => {
 
             <div className=' hover:bg-linear-to-r from-[#9BEC00] to-[#F3FF90] hover:opacity-80 hover:rounded-t-[50px] transition-all duration-500'>
             <div>
-                <div>
+                <div className=''>
                 <img className='w-[100px] h-[100px] object-cover mx-auto' src={img3} alt="" />
                 </div>
                 <h2 className="text-xl font-bold">Sustainable Shop</h2>

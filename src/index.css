@@ -13,3 +13,45 @@ body {
   /* overflow: hidden; */
 }
 
+/* wave css  */
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 75px;
+}
+
+.wave .shape-fill {
+    fill: #FFFFFF;
+}
+
+
+/* for curve -  */
+.curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.curve svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.curve .shape-fill {
+    fill: #FFFFFF;
+}

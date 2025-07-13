@@ -52,12 +52,12 @@ const Navbar = () => {
       </div>
 
       <div className="flex justify-center items-center gap-2">
-        <Link>
+        <Link to="login">
           <button className="btn myBtn font-light bg-linear-to-r from-[#059212] to-[#9BEC00] text-white hover:border-0  rounded-full"
            onMouseMove={handleMouseMove}
            ref={btnRef}
           >
-            <span>Sign in</span>
+            <span>Log in</span>
           </button>
         </Link>
 

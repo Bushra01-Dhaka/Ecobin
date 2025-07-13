@@ -1,0 +1,52 @@
+.banner_container{
+    margin: 0;
+    background-color: #0000;
+    color: white;
+    min-height: 100vh;
+}
+
+.banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.banner .content .title{
+    font-size: 6rem;
+    font-weight: bolder;
+}
+/* linear-gradient(135deg, rgba(45, 51, 54, 0.8), rgba(17, 21, 26, 0.8)), */
+.banner::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+    url("../../src/assets/images/7.png");
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+
+    mask-image: url("../../src/assets/images/ink_gif.gif");
+    mask-size: cover;
+    mask-position: center;
+
+}
+
+.banner::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+    url("../../src/assets/images/7.png");
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+
+    mask-image: url("../../src/assets/images/ink_gif.gif");
+    mask-size: cover;
+    mask-position: center;
+
+}
+

@@ -1,4 +1,4 @@
-import React from "react";
+
 import banner_img from "../../assets/images/5.png";
 import { Link } from "react-router";
 import { TiTick } from "react-icons/ti";
@@ -25,7 +25,7 @@ const CustomerSupportBanner = () => {
                     <span>Contact Us</span>
                   </button>
                 </Link>
-                <Link>
+                <Link to="/services">
                   <button className="btn bg-transparent border-white  text-white shadow-xl p-4 transition-all duration-200 hover:bg-[#059212] ">
                     <span>Explore Now</span>
                   </button>
@@ -36,7 +36,7 @@ const CustomerSupportBanner = () => {
         </div>
       </div>
 
-      <div className="py-20 bg-linear-to-r from-[#059212] to-[#9BEC00] text-white flex flex-col lg:flex-row justify-between items-start  lg:px-10 px-6 rounded-lg lg:max-w-[1200px] lg:relative top-[-120px] mx-auto shadow-2xl">
+      <div className="py-20 bg-linear-to-r from-[#059212] to-[#9BEC00] text-white flex flex-col lg:flex-row justify-between items-start  lg:px-10 px-6 rounded-lg lg:max-w-[1200px] lg:relative top-[-120px] mx-auto ">
         <div className="lg:py-0 py-6">
           <p className="py-4 text-center lg:text-justify">Recycle Materials</p>
           <h2 className="lg:text-5xl text-4xl  text-center lg:text-justify  lg:max-w-[500px] font-bold">
@@ -92,6 +92,14 @@ const CustomerSupportBanner = () => {
               </li>
             </ul>
         </div>
+
+         {/* for curve  */}
+         <div class="curve">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z" class="shape-fill"></path>
+    </svg>
+</div>
+
       </div>
 
 

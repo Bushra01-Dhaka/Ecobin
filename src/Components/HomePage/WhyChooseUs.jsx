@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {
   return (
-    <div className="md:px-10 px-6 flex flex-col-reverse lg:flex-row justify-center items-center py-10 lg:gap-8">
+    <div className="md:px-10 px-6  flex flex-col-reverse lg:flex-row justify-center items-center py-10 lg:gap-8">
       <div className="flex-1 w-[100%] lg:h-auto lg:mx-auto">
         <img className="" src={img} alt="" />
         <img
