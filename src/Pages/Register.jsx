@@ -7,7 +7,6 @@ const Register = () => {
     <div>
       <div className="flex flex-col lg:flex-row justify-center items-start gap-6 lg:px-10 px-6">
         {/* left */}
-        {/* <img className="h-[100vh] w-[100%] p-6" src={registerImg} alt="" /> */}
          <video className="flex-1 h-[70vh] w-[80%] mx-auto p-6" autoPlay loop muted>
                     <source src={registerImg} type="video/mp4"></source>
         </video>
@@ -65,8 +64,8 @@ const Register = () => {
              <p className="text-center">Or</p>
 
              <div className="py-6 flex justify-center items-center gap-4 cursor-pointer">
-            <SlSocialGoogle className="text-3xl hover:text-[#059212] font-bold" />
-            <AiFillGithub className="text-3xl hover:text-[#059212] font-bold" />
+            <SlSocialGoogle className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
+            <AiFillGithub className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
           </div>
 
           <p className="py-2 text-center">Already Have an account? <Link to='/login' className="font-bold hover:text-[#059212]">Login</Link></p>
