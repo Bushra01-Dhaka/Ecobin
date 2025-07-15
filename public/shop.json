@@ -1,0 +1,191 @@
+[
+  {
+    "product_no": "PRD001",
+    "product_name": "Recycled Paper Notebook",
+    "product_intro": "Eco-friendly notebook made from 100% recycled paper.",
+    "product_description": "Embark on your journey towards a zero-waste lifestyle with our comprehensive starter kits. Packed with a curated selection of reusable items including bamboo utensils, stainless steel straws, cloth napkins, and more, our kits provide everything you need to kickstart your eco-friendly lifestyle. Make a positive impact on the environment and embrace sustainable living with our Zero-Waste Kits.",
+    "price": 180,
+    "type": "Stationery",
+    "product_image": "https://i.ibb.co/ycfGcTfH/shop23.webp"
+  },
+  {
+    "product_no": "PRD002",
+    "product_name": "Bamboo Toothbrush",
+    "product_intro": "Sustainable toothbrush with soft bristles and bamboo handle.",
+    "product_description": "A great alternative to plastic, this biodegradable toothbrush is crafted from bamboo and is gentle on your gums while being kind to the Earth.",
+    "price": 120,
+    "type": "Personal Care",
+    "product_image": "https://i.ibb.co/mFBJBg2H/shop1.jpg"
+  },
+  {
+    "product_no": "PRD003",
+    "product_name": "Reusable Cotton Tote Bag",
+    "product_intro": "Sturdy and washable eco-friendly tote bag.",
+    "product_description": "Say goodbye to plastic bags! This reusable cotton tote is perfect for shopping or daily use. It’s strong, stylish, and sustainable.",
+    "price": 250,
+    "type": "Accessories",
+    "product_image": "https://i.ibb.co/VYQwS4Z2/shop5.jpg"
+  },
+  {
+    "product_no": "PRD004",
+    "product_name": "Compostable Trash Bags",
+    "product_intro": "100% compostable garbage bags for eco-conscious homes.",
+    "product_description": "These durable and leak-proof trash bags break down naturally in compost, helping reduce landfill waste and plastic pollution.",
+    "price": 330,
+    "type": "Cleaning Supplies",
+    "product_image": "https://i.ibb.co/pv83mVgL/shop24.jpg"
+  },
+  {
+    "product_no": "PRD005",
+    "product_name": "Biodegradable Dish Soap",
+    "product_intro": "Biodegradable dish shop made from real coconut shells.",
+    "product_description": "Keep your dishes clean and the environment happy with our biodegradable dish soap. Formulated with eco-friendly ingredients, our dish soap effectively cuts through grease and grime while minimizing its environmental impact. Additionally, set the mood sustainably with natural beeswax candles, free from harmful chemicals and pollutants. Make eco-conscious choices for your home with our Biodegradable Dish Soap and natural beeswax candles.",
+    "price": 300,
+    "type": "Cleaning Supplies",
+    "product_image": "https://i.ibb.co/8DgVZq7z/shop20.png"
+  },
+  {
+    "product_no": "PRD006",
+    "product_name": "Eco-Friendly Dish Box",
+    "product_intro": "Eco-friendly dish box with natural bristles.",
+    "product_description": "Clean your dishes sustainably with this biodegradable brush made of beechwood and coconut fiber bristles. Long-lasting and reusable.",
+    "price": 160,
+    "type": "Kitchenware",
+    "product_image": "https://i.ibb.co/Kj4tG1HW/shop6.jpg"
+  },
+  {
+    "product_no": "PRD007",
+    "product_name": "Organic Cotton Toto Bag",
+    "product_intro": "Carry your essentials in style with organic cotton tote bags",
+    "product_description": "Ditch single-use plastic bags and carry your essentials in our organic cotton tote bags. Made from sustainably sourced materials, our bags offer a stylish and eco-friendly alternative to disposable plastic bags. Additionally, savor ethically sourced coffee with our fair trade coffee beans, supporting farmers and promoting sustainability in coffee production. Make a positive impact on the environment with our Organic Cotton Tote Bags and fair trade coffee beans.",
+    "price": 220,
+    "type": "Accessories",
+    "product_image": "https://i.ibb.co/0pMgVXRr/shop3.jpg"
+  },
+  {
+    "product_no": "PRD008",
+    "product_name": "Organic Beeswax Candle",
+    "product_intro": "Beautiful candle made with natural beeswax.",
+    "product_description": "Create a warm and inviting atmosphere in your home with our natural beeswax candles. Made from pure beeswax, these candles emit a subtle honey scent and burn cleanly without releasing harmful toxins into the air. Additionally, store your snacks sustainably with reusable silicone food bags, minimizing plastic waste and keeping your snacks fresh. Make environmentally friendly choices in your everyday life with our Natural Beeswax Candles and reusable silicone food bags.",
+    "price": 370,
+    "type": "Home Decor",
+    "product_image": "https://i.ibb.co/b5pbbYTQ/shop11.jpg"
+  },
+  {
+    "product_no": "PRD009",
+    "product_name": "Toto Bag",
+    "product_intro": "Carry your essentials in style with organic cotton tote bags.",
+    "product_description": "Ditch single-use plastic bags and carry your essentials in our organic cotton tote bags. Made from sustainably sourced materials, our bags offer a stylish and eco-friendly alternative to disposable plastic bags. Additionally, savor ethically sourced coffee with our fair trade coffee beans, supporting farmers and promoting sustainability in coffee production. Make a positive impact on the environment with our Organic Cotton Tote Bags and fair trade coffee beans.",
+    "price": 450,
+    "type": "Accessories",
+    "product_image": "https://i.ibb.co/LDL4SLD9/shop4.jpg"
+  },
+  {
+    "product_no": "PRD010",
+    "product_name": "Solar-Powered Chargers",
+    "product_intro": "Charge your devices on-the-go with solar-powered chargers.",
+    "product_description": "Never run out of battery on your adventures with our solar-powered phone chargers. Harness the power of the sun to charge your devices anytime, anywhere, while reducing your reliance on traditional electricity sources. Additionally, upgrade your dental routine with our eco-friendly bamboo toothbrushes, reducing plastic waste with every brush. Make sustainable choices with our Solar-Powered Phone Chargers and bamboo toothbrushes.",
+    "price": 1000,
+    "type": "Electronics",
+    "product_image": "https://i.ibb.co/NdVzQLJP/shop13.webp"
+  },
+  {
+    "product_no": "PRD011",
+    "product_name": "Natural Beeswax Candles",
+    "product_intro": "Set the mood sustainably with natural beeswax candles.",
+    "product_description": "Create a warm and inviting atmosphere in your home with our natural beeswax candles. Made from pure beeswax, these candles emit a subtle honey scent and burn cleanly without releasing harmful toxins into the air. Additionally, store your snacks sustainably with reusable silicone food bags, minimizing plastic waste and keeping your snacks fresh. Make environmentally friendly choices in your everyday life with our Natural Beeswax Candles and reusable silicone food bags.",
+    "price": 600,
+    "type": "Home Decor",
+    "product_image": "https://i.ibb.co/ymJLBcSr/shop10.jpg"
+  },
+  {
+    "product_no": "PRD012",
+    "product_name": "Jute Table Lamp",
+    "product_intro": "Rustic table lamp woven from natural jute.",
+    "product_description": "These eco-friendly lamp add charm to your dining table while being eco-friendly and biodegradable.",
+    "price": 340,
+    "type": "Home Decor",
+    "product_image": "https://i.ibb.co/MdVKV0W/shop12.jpg"
+  },
+  {
+    "product_no": "PRD013",
+    "product_name": "Reusable Bamboo Chopstick",
+    "product_intro": "Soft and reusable chopstick made of bamboo.",
+    "product_description": "Soft and reusable chopstick. These reusable soft and reusable chopstick napkins are gentle, washable, and great for both daily use and special dinners.",
+    "price": 290,
+    "type": "Kitchenware",
+    "product_image": "https://i.ibb.co/35RS4Mzk/shop7.jpg"
+  },
+  {
+    "product_no": "PRD014",
+    "product_name": "Reuseable Waste Bin",
+    "product_intro": "Offer a variety of recycling bins and containers for different materials.",
+    "product_description": "We offer a comprehensive range of recycling bins and containers designed to cater to different materials such as paper, plastic, glass, and metal. Our bins are carefully crafted to facilitate easy sorting and disposal of waste, enabling customers to contribute effectively to environmental sustainability.",
+    "price": 1200,
+    "type": "Waste Bins",
+    "product_image": "https://i.ibb.co/LhcRrghB/shop15.png"
+  },
+  {
+    "product_no": "PRD015",
+    "product_name": "Solar Powered Lantern",
+    "product_intro": "Chargeable lantern powered by the sun.",
+    "product_description": "Perfect for camping or emergencies, this solar lantern charges during the day and lights up your space at night.",
+    "price": 780,
+    "type": "Electronics",
+    "product_image": "https://i.ibb.co/8LxmPJ6C/lamp.jpg"
+  },
+  {
+    "product_no": "PRD016",
+    "product_name": "Recycling Bins",
+    "product_intro": "Offer a variety of recycling bins and containers for different materials.",
+    "product_description": "We offer a comprehensive range of recycling bins and containers designed to cater to different materials such as paper, plastic, glass, and metal. Our bins are carefully crafted to facilitate easy sorting and disposal of waste, enabling customers to contribute effectively to environmental sustainability.",
+    "price": 1000,
+    "type": "Waste Bins",
+    "product_image": "https://i.ibb.co/Swz4BQBc/shop17.png"
+  },
+  {
+    "product_no": "PRD017",
+    "product_name": "10 Yard Dumpster",
+    "product_intro": "Convenient 10-yard dumpster for easy waste disposal.",
+    "product_description": "Simplify waste management with our convenient 10-yard dumpster. Perfect for residential cleanouts and small-scale commercial projects, this dumpster offers a compact yet efficient solution for waste disposal needs. Additionally, say goodbye to plastic wrap and try our beeswax wraps, a sustainable alternative for preserving food freshness while reducing single-use plastic waste. Make sustainable choices with our 10 Yard Dumpster and beeswax wraps.",
+    "price": 3000,
+    "type": "Waste Bins",
+    "product_image": "https://i.ibb.co/9mgY7mJp/shop18.png"
+  },
+  {
+    "product_no": "PRD018",
+    "product_name": "20 Gallon Trash Bin",
+    "product_intro": "Sturdy 20-gallon trash bin for efficient waste disposal.",
+    "product_description": "Dispose of your waste responsibly with our sturdy 20-gallon trash bin. Designed for efficiency and durability, this bin is ideal for homes, offices, and public spaces. Additionally, explore our range of bamboo products, including utensils, toothbrushes, and kitchenware, known for their eco-friendly and renewable properties. Make sustainable choices a part of your daily life with our 20 Gallon Trash Bin and bamboo products.",
+    "price": 2000,
+    "type": "Waste Bins",
+    "product_image": "https://i.ibb.co/B56fNt1F/shop16.png"
+  },
+  {
+    "product_no": "PRD019",
+    "product_name": "Reusable Water Bottles",
+    "product_intro": "Stay hydrated sustainably with reusable water bottles.",
+    "product_description": "Stay hydrated on-the-go while reducing plastic waste with our reusable water bottles. Made from durable materials, our water bottles are designed to withstand daily use and help you stay hydrated throughout the day. Additionally, explore our range of solar-powered phone chargers, allowing you to charge your devices using renewable energy. Embrace sustainability in every aspect of your life with our Reusable Water Bottles and solar-powered chargers.",
+    "price": 650,
+    "type": "Accessories",
+    "product_image": "https://i.ibb.co/RT8t2kWS/shop21.png"
+  },
+  {
+    "product_no": "PRD020",
+    "product_name": "15 Gallon Trash Bin",
+    "product_intro": "Sturdy 15-gallon trash bin for efficient waste disposal.",
+    "product_description": "Manage your waste effectively with our sturdy 15-gallon trash bin. Designed to handle various types of waste, this bin is perfect for households, offices, and commercial spaces. Additionally, embrace sustainable living with our collection of solar-powered gadgets, from chargers to garden lights, harnessing the power of the sun. Make eco-friendly choices a priority with our 15 Gallon Trash Bin and solar-powered gadgets",
+    "price": 1500,
+    "type": "Waste Bins",
+    "product_image": "https://i.ibb.co/Swz4BQBc/shop17.png"
+  },
+  {
+    "product_no": "PRD021",
+    "product_name": "Natural Beeswax Candles",
+    "product_intro": "Set the mood sustainably with natural beeswax candles",
+    "product_description": "Create a warm and inviting atmosphere in your home with our natural beeswax candles. Made from pure beeswax, these candles emit a subtle honey scent and burn cleanly without releasing harmful toxins into the air. Additionally, store your snacks sustainably with reusable silicone food bags, minimizing plastic waste and keeping your snacks fresh. Make environmentally friendly choices in your everyday life with our Natural Beeswax Candles and reusable silicone food bags.",
+    "price": 400,
+    "type": "Home Decor",
+    "product_image": "https://i.ibb.co/39mVMYQB/shop9.jpg"
+  }
+]

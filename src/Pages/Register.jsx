@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const Register = () => {
   return (
     <div>
-      <div className="flex flex-col lg:flex-row justify-center items-start gap-6 lg:px-10 px-6">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:px-10 px-6">
         {/* left */}
          <video className="flex-1 h-[70vh] w-[80%] mx-auto p-6" autoPlay loop muted>
                     <source src={registerImg} type="video/mp4"></source>

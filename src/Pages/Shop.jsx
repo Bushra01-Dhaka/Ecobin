@@ -1,8 +1,30 @@
+import { useEffect, useRef, useState } from "react";
 import img from "../assets/images/shop.jpg";
+import { Link } from "react-router";
+import { FaArrowRight } from "react-icons/fa";
 
 const Shop = () => {
+  const [shopItems, setShopItems] = useState([]);
+  const btnRef = useRef(null);
+
+  useEffect(() => {
+    fetch(`shop.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setShopItems(data);
+      });
+  }, []);
+  console.log(shopItems);
+
+  const handleMouseMove = (e) => {
+    const rect = btnRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    btnRef.current.style.setProperty("--x", `${x}px`);
+    btnRef.current.style.setProperty("--y", `${y}px`);
+  };
   return (
-    <div>
+    <div className="bg-linear-to-b from-white to-green-100">
       <div className="relative ">
         <div
           className="hero min-h-[80vh]"
@@ -40,9 +62,116 @@ const Shop = () => {
         <h2 className="text-2xl lg:text-3xl text-center py-6 font-semibold">
           Waste Less, Live More.
         </h2>
-       
       </div>
 
+      <div className="lg:p-10 p-6 flex justify-between items-start gap-6">
+        {/* left side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {shopItems.map((item) => (
+            <div
+              key={item.product_no}
+              className="bg-white p-4 w-[320px] rounded-md shadow-2xl overflow-hidden"
+            >
+              {/* <img
+                className="h-[400px] w-[300px] rounded-md object-cover transition-transform duration-300 hover:scale-110 cursor-pointer"
+                src={item?.product_image}
+                alt=""
+              /> */}
+              <img
+                className="h-[400px] w-[300px] rounded-md object-cover cursor-pointer"
+                src={item?.product_image}
+                alt=""
+              />
+
+              <h3 className="py-4 text-lg text-[#059212] font-bold">
+                {item?.product_name}
+              </h3>
+
+              <p className="text-slate-700">{item?.product_intro}</p>
+
+              <Link to="">
+                <button
+                  className="btn-block p-2 myBtn bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold text-white hover:border-0  rounded-lg my-4"
+                  onMouseMove={handleMouseMove}
+                  ref={btnRef}
+                >
+                  <span className="text-center">
+                    Details <FaArrowRight className="inline" />
+                  </span>
+                </button>
+              </Link>
+            </div>
+          ))}
+        </div>
+
+        {/* right side */}
+        <div>
+          <div className="bg-green-50 p-4 w-full h-[100px] flex justify-center items-center rounded-md shadow-2xl">
+            <label className="input">
+              <svg
+                className="h-[1em] opacity-50"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <g
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth="2.5"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </g>
+              </svg>
+              <input type="search" className="grow" placeholder="Search" />
+            </label>
+          </div>
+
+          <div className="my-6 py-6 bg-green-50 rounded-md shadow-2xl grid grid-cols-1 gap-4">
+            <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">All Products</p>
+              </div>
+
+              <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Waste Bins</p>
+              </div>
+
+              <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Home Decors</p>
+              </div>
+
+              <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Accessories</p>
+              </div>
+
+              <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Personal Use</p>
+              </div>
+
+              <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Kitchen Items</p>
+              </div>
+
+              <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Electronics</p>
+              </div>
+
+               <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Stationery</p>
+              </div>
+
+              <div className="px-4 py-2 ">
+                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Cleaning Supplies</p>
+              </div>
+
+            
+          </div>
+
+        </div>
+
+
+      </div>
     </div>
   );
 };
