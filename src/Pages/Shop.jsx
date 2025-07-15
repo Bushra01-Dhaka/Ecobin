@@ -23,6 +23,22 @@ const Shop = () => {
     btnRef.current.style.setProperty("--x", `${x}px`);
     btnRef.current.style.setProperty("--y", `${y}px`);
   };
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; // or any number you want per page
+
+  // Calculate total pages
+  const totalPages = Math.ceil(shopItems.length / itemsPerPage);
+
+  // Slice items for current page
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = shopItems.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
   return (
     <div className="bg-linear-to-b from-white to-green-100">
       <div className="relative ">
@@ -67,39 +83,33 @@ const Shop = () => {
       <div className="lg:p-10 p-6 flex justify-between items-start gap-6">
         {/* left side */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {shopItems.map((item) => (
-            <div
-              key={item.product_no}
-              className="bg-white p-4 w-[320px] rounded-md shadow-2xl overflow-hidden"
-            >
-              {/* <img
-                className="h-[400px] w-[300px] rounded-md object-cover transition-transform duration-300 hover:scale-110 cursor-pointer"
-                src={item?.product_image}
-                alt=""
-              /> */}
-              <img
-                className="h-[400px] w-[300px] rounded-md object-cover cursor-pointer"
-                src={item?.product_image}
-                alt=""
-              />
+          {currentItems.map((item) => (
+            <div key={item.product_no}>
+              <div className="bg-white p-4 w-[320px] rounded-md shadow-2xl overflow-hidden">
+                <img
+                  className="h-[400px] w-[300px] rounded-md object-cover cursor-pointer"
+                  src={item?.product_image}
+                  alt=""
+                />
 
-              <h3 className="py-4 text-lg text-[#059212] font-bold">
-                {item?.product_name}
-              </h3>
+                <h3 className="py-4 text-lg text-[#059212] font-bold">
+                  {item?.product_name}
+                </h3>
 
-              <p className="text-slate-700">{item?.product_intro}</p>
+                <p className="text-slate-700">{item?.product_intro}</p>
 
-              <Link to="">
-                <button
-                  className="btn-block p-2 myBtn bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold text-white hover:border-0  rounded-lg my-4"
-                  onMouseMove={handleMouseMove}
-                  ref={btnRef}
-                >
-                  <span className="text-center">
-                    Details <FaArrowRight className="inline" />
-                  </span>
-                </button>
-              </Link>
+                <Link to="">
+                  <button
+                    className="btn-block p-2 myBtn bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold text-white hover:border-0  rounded-lg my-4"
+                    onMouseMove={handleMouseMove}
+                    ref={btnRef}
+                  >
+                    <span className="text-center">
+                      Details <FaArrowRight className="inline" />
+                    </span>
+                  </button>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
@@ -130,47 +140,77 @@ const Shop = () => {
 
           <div className="my-6 py-6 bg-green-50 rounded-md shadow-2xl grid grid-cols-1 gap-4">
             <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">All Products</p>
-              </div>
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                All Products
+              </p>
+            </div>
 
-              <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Waste Bins</p>
-              </div>
+            <div className="px-4 py-2 ">
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                Waste Bins
+              </p>
+            </div>
 
-              <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Home Decors</p>
-              </div>
+            <div className="px-4 py-2 ">
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                Home Decors
+              </p>
+            </div>
 
-              <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Accessories</p>
-              </div>
+            <div className="px-4 py-2 ">
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                Accessories
+              </p>
+            </div>
 
-              <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Personal Use</p>
-              </div>
+            <div className="px-4 py-2 ">
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                Personal Use
+              </p>
+            </div>
 
-              <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Kitchen Items</p>
-              </div>
+            <div className="px-4 py-2 ">
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                Kitchen Items
+              </p>
+            </div>
 
-              <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Electronics</p>
-              </div>
+            <div className="px-4 py-2 ">
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                Electronics
+              </p>
+            </div>
 
-               <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Stationery</p>
-              </div>
+            <div className="px-4 py-2 ">
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                Stationery
+              </p>
+            </div>
 
-              <div className="px-4 py-2 ">
-                  <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">Cleaning Supplies</p>
-              </div>
-
-            
+            <div className="px-4 py-2 ">
+              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
+                Cleaning Supplies
+              </p>
+            </div>
           </div>
-
         </div>
+      </div>
 
-
+      {/* Pagination effect */}
+      <div className="flex justify-center mt-8 pb-8 space-x-2">
+        {Array.from({ length: totalPages }, (_, i) => (
+          <button
+            key={i}
+            onClick={() => handlePageChange(i + 1)}
+            className={`px-4 py-2 rounded-md border ${
+              currentPage === i + 1
+                ? "bg-[#059212] text-white"
+                : "bg-white text-[#059212] border-[#059212]"
+            } hover:bg-[#059212] hover:text-white`}
+          >
+            {i + 1}
+          </button>
+        ))}
       </div>
     </div>
   );
