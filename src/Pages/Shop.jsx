@@ -212,6 +212,7 @@ const Shop = () => {
           </button>
         ))}
       </div>
+      
     </div>
   );
 };

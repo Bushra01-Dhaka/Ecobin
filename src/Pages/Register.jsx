@@ -2,7 +2,32 @@ import { SlSocialGoogle } from "react-icons/sl";
 import registerImg from "../assets/images/User registration.mp4";
 import { AiFillGithub } from "react-icons/ai";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 const Register = () => {
+
+  const {createUser} = useContext(AuthContext);
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(name,phone,email,password)
+    createUser(email, password) 
+    .then(result => {
+      const user = result.user;
+      console.log(user)
+    })
+  }
+
+
+
+
+
   return (
     <div>
       <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:px-10 px-6">
@@ -17,7 +42,7 @@ const Register = () => {
 
         {/* form */}
           <div>
-            <form action="w-[80%] mx-auto">
+            <form onSubmit={handleRegister} action="w-[80%] mx-auto">
               <fieldset className="fieldset">
                 
                 <input 
@@ -43,7 +68,7 @@ const Register = () => {
                 name="email"
                 />
             
-                             <input
+                <input
                   type="password"
                   className="input w-full my-4 border-0 border-b-1 border-b-slate-800 rounded-b-none outline-0"
                   placeholder="Password"

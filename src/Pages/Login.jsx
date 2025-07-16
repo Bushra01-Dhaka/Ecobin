@@ -2,7 +2,30 @@ import { SlSocialGoogle } from "react-icons/sl";
 import LogImg from "../assets/images/Login.mp4";
 import { AiFillGithub } from "react-icons/ai";
 import { Link } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
+
 const Login = () => {
+
+  const {signIn} = useContext(AuthContext);
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+
+    signIn(email, password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+    })
+  }
+
+
+
   return (
     <div>
       <div className="flex flex-col lg:flex-row justify-between items-center gap-6 lg:px-10 px-6">
@@ -17,7 +40,7 @@ const Login = () => {
 
           {/* form */}
           <div>
-            <form action="w-[80%] mx-auto">
+            <form onSubmit={handleLogin} action="w-[80%] mx-auto">
               <fieldset className="fieldset">
                 <input
                   type="email"
