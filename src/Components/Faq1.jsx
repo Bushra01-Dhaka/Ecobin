@@ -51,7 +51,7 @@ const Faq = () => {
 
   return (
     <div>
-      <div className="text-center pb-10">
+      <div className="text-center py-10">
         <h1 className="text-4xl font-bold">FAQ</h1>
         <p className="py-4 text-[#059212] text-lg font-bold">
           frequently asked questions

@@ -1,3 +1,4 @@
+import IntroBanner from "../../CustomCompo/IntroBanner";
 import ServiceSlider from "./ServiceSlider";
 const Services = () => {
   return (
@@ -13,6 +14,7 @@ const Services = () => {
       <div className="px-6 md:px-10 mx-auto">
                <ServiceSlider></ServiceSlider>
       </div>
+
 
 
     </div>

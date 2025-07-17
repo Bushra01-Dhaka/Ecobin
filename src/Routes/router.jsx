@@ -5,6 +5,7 @@ import ServicePage from "../Pages/ServicePage";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import Shop from "../Pages/Shop";
+import AboutUs from "../Pages/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
         {
           path:"shop",
           element:<Shop></Shop>
+        },
+        {
+          path:"aboutUs",
+          element:<AboutUs></AboutUs>
+
         }
       ]
     },
