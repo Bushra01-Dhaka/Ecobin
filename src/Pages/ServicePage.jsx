@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
 import MaskImage from "../CustomCompo/MaskImage";
+import MutualBenefits from "./MutualBenefits";
 
 const ServicePage = () => {
   const [services, setServices] = useState([]);
@@ -55,7 +56,7 @@ const ServicePage = () => {
         
       </div>
 
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-2 px-6 lg:px-10 py-20">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-2 px-6 lg:px-10 pt-20">
         {services.map((item) => (
           <div key={item.service_no}>
             <div>
@@ -86,6 +87,11 @@ const ServicePage = () => {
           </div>
         ))}
       </div>
+
+
+      <MutualBenefits></MutualBenefits>
+
+
     </div>
   );
 };

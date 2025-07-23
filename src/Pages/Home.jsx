@@ -6,8 +6,8 @@ import WhyChooseUs from '../Components/HomePage/WhyChooseUs';
 import CustomerSupportBanner from '../Components/HomePage/CustomerSupportBanner';
 // import Faq from '../Components/Faq';
 import Faq1 from '../Components/Faq1';
-import PictureCards from '../CustomCompo/PictureCards';
 import IntroBanner from '../CustomCompo/IntroBanner';
+import MutualBenefits from './MutualBenefits';
 
 const Home = () => {
     return (
@@ -17,7 +17,7 @@ const Home = () => {
             <Services></Services>
             <WhyChooseUs></WhyChooseUs>
             <CustomerSupportBanner></CustomerSupportBanner>
-            <PictureCards></PictureCards>
+            <MutualBenefits></MutualBenefits>
             <IntroBanner></IntroBanner>
             {/* <Faq></Faq> */}
             <Faq1></Faq1>

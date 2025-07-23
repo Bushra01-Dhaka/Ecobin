@@ -4,6 +4,7 @@ import PictureCards from "../CustomCompo/PictureCards";
 import myPic from "../assets/images/self.jpeg";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
 import nadirPic from "../assets/images/nadir.jpg";
+import MutualBenefits from "./MutualBenefits";
 
 const AboutUs = () => {
   return (
@@ -54,7 +55,7 @@ const AboutUs = () => {
         </p>
 
         <div className="flex flex-row-reverse justify-center items-center gap-4 mx-auto my-6">
-          <div className="bg-white p-6 rounded-xl shadow-2xl text-slate-800 text-center w-[400px]">
+          <div className="bg-white p-6 rounded-xl shadow-2xl text-slate-800 text-center w-[300px]">
             <img
               className="w-[200px] h-[200px] mx-auto rounded-full object-cover shadow-2xl"
               src={myPic}
@@ -75,7 +76,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-2xl text-slate-800 text-center w-[400px]">
+          <div className="bg-white p-6 rounded-xl shadow-2xl text-slate-800 text-center w-[300px]">
             <img
               className="w-[200px] h-[200px] mx-auto rounded-full object-cover shadow-2xl"
               src={nadirPic}
@@ -101,9 +102,7 @@ const AboutUs = () => {
 
       </div>
 
-      <br />
-      <br />
-      <br />
+      <MutualBenefits></MutualBenefits>
 
       <IntroBanner></IntroBanner>
     </div>
