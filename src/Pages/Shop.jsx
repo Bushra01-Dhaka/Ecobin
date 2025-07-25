@@ -8,7 +8,7 @@ const Shop = () => {
   const btnRef = useRef(null);
 
   useEffect(() => {
-    fetch(`shop.json`)
+    fetch(`http://localhost:5000/shop`)
       .then((res) => res.json())
       .then((data) => {
         setShopItems(data);

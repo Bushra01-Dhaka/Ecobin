@@ -9,9 +9,9 @@ import { BsRecycle } from "react-icons/bs";
 
 const HoverDevCards = () => {
   return (
-    <div className="px-20 mb-20">
-      <p className=" py-6 text-3xl lg:text-4xl font-Semibold bg-gradient-to-r from-slate-900 to-slate-800 text-transparent bg-clip-text text-center">Why Choose Mutual Benefit Program?</p>
-      <div className="grid gap-4 grid-cols-2 lg:grid-cols-3">
+    <div className="px-10 lg:px-20 mb-20">
+      <p className=" py-6 text-3xl lg:text-4xl font-Semibold bg-gradient-to-r from-slate-800 to-slate-800 text-transparent bg-clip-text text-center">Why Choose Mutual Benefit Program?</p>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3">
         <Card
           title="Connect Stakeholders"
           subtitle="Links construction companies and land developers to exchange CD waste for landfilling needs."

@@ -10,14 +10,14 @@ const WhyChooseUs = () => {
       <div className="flex-1 w-[100%] lg:h-auto lg:mx-auto">
         <img className="" src={img} alt="" />
         <img
-          className="md:hidden lg:block block relative right-[-330px] top-[-250px] rounded-lg shadow-2xl border-r-4 border-b-4 border-[#059212]"
+          className="hidden lg:block relative right-[-330px] top-[-250px] rounded-lg shadow-2xl border-r-4 border-b-4 border-[#059212]"
           src={img1}
           alt=""
         />
       </div>
       <div className="flex-1 pb-10 lg:p-8 p-4">
         <p className="py-4 text-[#059212] text-lg font-bold">Why Choose Us</p>
-        <h1 className="font-bold text-4xl">Why choose our Ecobin services</h1>
+        <h1 className="font-semibold text-4xl text-slate-800">Why choose our Ecobin services</h1>
         <div className="text-lg">
           <p className="py-6">
             At EcoBin, we are committed to delivering reliable, eco-friendly

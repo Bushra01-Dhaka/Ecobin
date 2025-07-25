@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode, Pagination } from "swiper/modules";
-import slide1 from "../../assets/images/2.png";
-import slide2 from "../../assets/images/5.png";
-import slide3 from "../../assets/images/6.png";
-import slide4 from "../../assets/images/7.png";
-import slide5 from "../../assets/images/5.png";
-import slide6 from "../../assets/images/2.png";
 import { Link } from "react-router";
 import { FaArrowAltCircleRight } from "react-icons/fa";
-const ServiceSlider = () => {
+const ServiceSlide = () => {
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/services`)
+      .then((res) => res.json())
+      .then((data) => {
+        setServices(data);
+      });
+  }, []);
+  console.log(services);
   return (
     <div className="w-full max-w-[1200px] mx-auto">
       <Swiper
@@ -38,7 +41,39 @@ const ServiceSlider = () => {
           },
         }}
       >
-        <SwiperSlide>
+        {services.map((item) => (
+          <div key={item?._id}>
+            <SwiperSlide>
+              <div className="relative">
+                <div className="lg:w-96 w-full">
+                  <img
+                    src={item?.image}
+                    className="w-full lg:h-[300px] rounded-lg"
+                    alt="Services"
+                  />
+                </div>
+                <div className="md:relative md:top-[-80px] lg:w-82 w-full bg-white p-6 shadow-xl md:rounded-lg h-[420px]">
+                  <h2 className="text-black text-2xl  font-semibold pt-6">
+                   {item?.service_title}
+                  </h2>
+                  <p className="py-4 text-slate-600">
+                   {item?.service_details}
+                  </p>
+                  <div className="text-black text-lg hover:text-white flex items-center gap-4">
+                    <Link>
+                      <button className="btn bg-white border-black hover:border-0 hover:text-white shadow-xl p-4 hover:bg-[#059212] ">
+                        <span>Explore Now</span>
+                        <FaArrowAltCircleRight className="text-2xl" />
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </div>
+        ))}
+
+        {/* <SwiperSlide>
           <div className="relative">
             <div className="lg:w-96 w-full">
               <img
@@ -222,10 +257,10 @@ const ServiceSlider = () => {
               </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );
 };
 
-export default ServiceSlider;
+export default ServiceSlide;

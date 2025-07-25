@@ -9,7 +9,7 @@ import MutualBenefits from "./MutualBenefits";
 const ServicePage = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch(`services.json`)
+    fetch(`http://localhost:5000/services`)
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -69,10 +69,10 @@ const ServicePage = () => {
                 <div className="w-[400px] h-[300px] hover:bg-linear-to-b from-transparent to-[#059212] absolute top-[-300px] rounded-2xl"></div>
 
                 <div className="bg-white text-slate-800 rounded-2xl p-4 lg:w-[350px] relative top-[-50px]">
-                  <h3 className="text-xl font-bold text-slate-950 py-6">
+                  <h3 className="text-xl font-bold text-slate-800 py-6">
                     {item?.service_title}
                   </h3>
-                  <p>{item?.service_details}</p>
+                  <p className="text-slate-600">{item?.service_details}</p>
                   <div className="flex items-center my-4 text-slate-950 hover:text-white">
                     <Link>
                       <button className="btn bg-white border-black hover:border-0 hover:text-white shadow-xl p-4 hover:bg-[#059212] ">

@@ -14,8 +14,8 @@ const MutualBenefits = () => {
     btnRef.current.style.setProperty("--y", `${y}px`);
   };
   return (
-    <div>
-      <div className="min-h-[80vh] flex justify-center items-center">
+    <div className="">
+      <div className="min-h-[50vh] flex justify-center items-center ">
         <div className="max-w-3xl mx-auto p-8 lg:p-0">
           <h2 className="text-4xl lg:text-6xl text-center text-slate-800 font-semibold">
             Mutual Benefit Program for{" "}
