@@ -1,18 +1,8 @@
-import { useRef } from "react";
 import HoverDevCards from "../CustomCompo/HoverDevCards";
-import { Link } from "react-router";
-import { FaArrowCircleRight } from "react-icons/fa";
+
+import CustomButton from "../Hooks/CustomButton";
 
 const MutualBenefits = () => {
-  const btnRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    const rect = btnRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    btnRef.current.style.setProperty("--x", `${x}px`);
-    btnRef.current.style.setProperty("--y", `${y}px`);
-  };
   return (
     <div className="">
       <div className="min-h-[50vh] flex justify-center items-center ">
@@ -30,15 +20,7 @@ const MutualBenefits = () => {
       <HoverDevCards></HoverDevCards>
 
       <div className="flex justify-center items-center text-center mb-20">
-        <Link>
-          <button
-            className="btn myBtn font-semibold bg-linear-to-r from-[#059212] to-[#9BEC00] text-white text-lg hover:border-0  rounded-md"
-            onMouseMove={handleMouseMove}
-            ref={btnRef}
-          >
-            <span>Request Service <FaArrowCircleRight className="inline text-2xl text-white" /></span>
-          </button>
-        </Link>
+        <CustomButton label="Request Service" to=""></CustomButton>
       </div>
     </div>
   );

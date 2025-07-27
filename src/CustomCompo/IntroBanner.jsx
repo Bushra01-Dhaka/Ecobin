@@ -1,3 +1,4 @@
+import CustomButton from "../Hooks/CustomButton";
 
 
 const IntroBanner = () => {
@@ -22,12 +23,7 @@ const IntroBanner = () => {
         <h1 className="text-4xl lg:text-6xl font-bold text-white mb-8">
           Smart Waste Pickup, Just a Click Away
         </h1>
-        <a
-          href="/allDoctors"
-          className="btn btn-info bg-gradient-to-r from-[#059212] to-[#9BEC00] ...  rounded-[50px] text-white  hover:bg-gradient-to-l border-0 hover:text-white"
-        >
-          Book Appointment
-        </a>
+         <CustomButton label="Explore Services" to="/services"></CustomButton>
       </div>
     </div>
   );

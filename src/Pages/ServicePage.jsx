@@ -74,7 +74,7 @@ const ServicePage = () => {
                   </h3>
                   <p className="text-slate-600">{item?.service_details}</p>
                   <div className="flex items-center my-4 text-slate-950 hover:text-white">
-                    <Link>
+                    <Link to={`/serviceDetails/${item?._id}`}>
                       <button className="btn bg-white border-black hover:border-0 hover:text-white shadow-xl p-4 hover:bg-[#059212] ">
                         <span>Explore Now</span>
                         <FaArrowAltCircleRight className="text-2xl" />

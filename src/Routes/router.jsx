@@ -6,6 +6,7 @@ import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import Shop from "../Pages/Shop";
 import AboutUs from "../Pages/AboutUs";
+import ServiceDetails from "../Components/DashboardCompo/ServiceDetails";
 
 const router = createBrowserRouter([
     {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
           path:"aboutUs",
           element:<AboutUs></AboutUs>
 
-        }
+        },
+        {
+          path:"serviceDetails/:id",
+          element:<ServiceDetails></ServiceDetails>
+        },
       ]
     },
   ]);
