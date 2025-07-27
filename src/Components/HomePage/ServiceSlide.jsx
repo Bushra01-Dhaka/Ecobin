@@ -60,7 +60,7 @@ const ServiceSlide = () => {
                    {item?.service_details}
                   </p>
                   <div className="text-black text-lg hover:text-white flex items-center gap-4">
-                    <Link>
+                    <Link to={`/serviceDetails/${item?._id}`}>
                       <button className="btn bg-white border-black hover:border-0 hover:text-white shadow-xl p-4 hover:bg-[#059212] ">
                         <span>Explore Now</span>
                         <FaArrowAltCircleRight className="text-2xl" />
