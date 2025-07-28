@@ -8,6 +8,7 @@ import Shop from "../Pages/Shop";
 import AboutUs from "../Pages/AboutUs";
 import ServiceDetails from "../Components/DashboardCompo/ServiceDetails";
 import Packages from "../Pages/Packages";
+import RequestService from "../Pages/RequestService";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         {
           path:"packages",
           element:<Packages></Packages>
+        },
+        {
+          path:"requestService",
+          element:<RequestService></RequestService>
         }
       ]
     },

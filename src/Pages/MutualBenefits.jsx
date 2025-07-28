@@ -20,7 +20,7 @@ const MutualBenefits = () => {
       <HoverDevCards></HoverDevCards>
 
       <div className="flex justify-center items-center text-center mb-20">
-        <CustomButton label="Request Service" to=""></CustomButton>
+        <CustomButton label="Request Service" to="/requestService"></CustomButton>
       </div>
     </div>
   );
