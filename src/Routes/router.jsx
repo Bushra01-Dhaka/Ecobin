@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import Shop from "../Pages/Shop";
 import AboutUs from "../Pages/AboutUs";
 import ServiceDetails from "../Components/DashboardCompo/ServiceDetails";
+import Packages from "../Pages/Packages";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
           path:"serviceDetails/:id",
           element:<ServiceDetails></ServiceDetails>
         },
+        {
+          path:"packages",
+          element:<Packages></Packages>
+        }
       ]
     },
   ]);

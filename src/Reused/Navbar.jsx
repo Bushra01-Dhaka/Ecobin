@@ -63,7 +63,7 @@ const Navbar = () => {
           </li>
 
           <li className="text-lg text-black hover:text-[#059212] font-semibold">
-            <Link>Packages</Link>
+            <Link to="/packages">Packages</Link>
           </li>
         </ul>
       </div>

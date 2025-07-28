@@ -1,21 +1,10 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { FaRightLeft } from "react-icons/fa6";
-import { Link } from "react-router";
+
+import CustomButton from "../Hooks/CustomButton";
 
 const PictureCards = () => {
-     const btnRef = useRef(null);
-     const handleMouseMove = (e) => {
-    const rect = btnRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    btnRef.current.style.setProperty("--x", `${x}px`);
-    btnRef.current.style.setProperty("--y", `${y}px`);
-  };
-
-
-
-
+    
   return (
     <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
       <div>
@@ -32,19 +21,7 @@ const PictureCards = () => {
           through smart technology and green innovation.
         </p>
         <div>
-          {/* <Link to="/allDoctors">
-               <button className="btn rounded-[50px] text-info hover:bg-accent hover:border-0 hover:text-white shadow-md">Book Appointment <FaRightLeft className=" "></FaRightLeft></button>
-               </Link> */}
-
-          <Link to="/services">
-            <button
-              className="btn myBtn font-semibold bg-linear-to-r from-[#059212] to-[#9BEC00] p-6 text-white hover:border-0  rounded-full"
-              onMouseMove={handleMouseMove}
-              ref={btnRef}
-            >
-              <span>Explore Services</span>
-            </button>
-          </Link>
+           <CustomButton label="Explore Services" to="/services"></CustomButton>
         </div>
       </div>
       <ShuffleGrid />
