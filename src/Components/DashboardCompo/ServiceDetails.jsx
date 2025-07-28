@@ -177,7 +177,7 @@ const ServiceDetails = () => {
 
           {/* buttons */}
           <div className="px-6 space-x-4 text-center">
-            <CustomButton label="Request Service" to=""></CustomButton>
+            <CustomButton label="Request Service" to="/requestService"></CustomButton>
           </div>
         </div>
       </div>

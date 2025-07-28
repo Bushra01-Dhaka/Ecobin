@@ -1,4 +1,30 @@
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 const RequestService = () => {
+
+  const {user} = useContext(AuthContext);
+  console.log(user?.email);
+
+  const handleServiceRequest = (event) =>{
+     event.preventDefault();
+     const form = event.target;
+     const service = form.service.value;
+     const property = form.property.value;
+     const container_size = form.container_size.value;
+     const price = form.price.value;
+     const name = form.name.value;
+     const date = form.date.value;
+     const email = form.email.value;
+     const phone = form.phone.value;
+     const address = form.address.value;
+
+     console.log(service, property, container_size, price, name, date, email, phone, address );
+     
+
+  }
+
+
   return (
     <div>
       <div className="min-h-[60vh] flex justify-center items-center ">
@@ -52,12 +78,17 @@ const RequestService = () => {
 
           <div>
             {/* form for request service */}
-            <form action="" className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <form 
+             onSubmit={handleServiceRequest}
+             action="" 
+             className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+
               <div className="my-10">
                 <label className="font-bold">Select Service*</label>
                 <select
                   defaultValue="Residential Waste Collection"
                   className="select select-neutral mt-4"
+                  name="service"
                 >
                   <option>Residential Waste Collection</option>
                   <option>Commercial Waste Management</option>
@@ -74,6 +105,7 @@ const RequestService = () => {
                 <select
                   defaultValue="Your Apartment/House"
                   className="select select-neutral mt-4"
+                  name="property"
                 >
                   <option>Your Apartment/House</option>
                   <option>Industry</option>

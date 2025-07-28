@@ -1,14 +1,17 @@
 import { SlSocialGoogle } from "react-icons/sl";
 import LogImg from "../assets/images/Login.mp4";
 import { AiFillGithub } from "react-icons/ai";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
+
 
 
 const Login = () => {
 
   const {signIn} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -21,6 +24,14 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
+      Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Logged in Successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+      navigate("/")
     })
   }
 
@@ -47,6 +58,8 @@ const Login = () => {
                   className="input w-full my-4 border-0 border-b-1 border-b-slate-800 rounded-b-none outline-0"
                   placeholder="Email"
                   name="email"
+                  required
+              
                 />
 
                 <input
@@ -54,6 +67,7 @@ const Login = () => {
                   className="input w-full my-4 border-0 border-b-1 border-b-slate-800 rounded-b-none outline-0"
                   placeholder="Password"
                   name="password"
+                  required
                 />
 
                 <input

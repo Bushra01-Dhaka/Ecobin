@@ -5,6 +5,7 @@ import { Link } from "react-router";
 const AvatarMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  console.log(user?.name)
 
   // Toggle menu on avatar click
   const toggleMenu = () => {
@@ -23,7 +24,7 @@ const AvatarMenu = () => {
     {
         user &&  <div className="relative">
         <div className="avatar cursor-pointer" onClick={toggleMenu}>
-          <div className="w-[50px] rounded-full">
+          <div className="w-[50px] rounded-full border-2 hover:border-green-600 border-[#059212]">
           {
                         user?.photoURL ? <>
                          <img className="" src={user?.photoURL} alt="" />
@@ -39,6 +40,7 @@ const AvatarMenu = () => {
         {menuOpen && (
           <div className="absolute top-14 right-0 bg-white border border-gray-200 rounded-lg shadow-lg w-48 p-3 z-10">
             <ul className="space-y-2">
+            <li className="text-lg font-semibold">{user?.displayName}!</li>
              <Link to='/userManageAccount'>
              <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">My Dashboard</li>
              </Link>
