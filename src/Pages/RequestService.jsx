@@ -1,10 +1,33 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const RequestService = () => {
 
   const {user} = useContext(AuthContext);
   console.log(user?.email);
+
+  const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
+
+  
+  const [price, setPrice] = useState(0);
+
+  const containerPrices = {
+    "32 Gallon Trash": 500,
+    "64 Gallon Trash": 1000,
+    "76 Gallon Trash": 1200,
+    "100 Gallon Trash": 1800,
+    "200 Gallon Trash": 2500,
+    "No Required": 0,
+  };
+
+  const handleContainerChange = (event) => {
+    const selectedSize = event.target.value;
+    setPrice(containerPrices[selectedSize] || 0);
+  };
 
   const handleServiceRequest = (event) =>{
      event.preventDefault();
@@ -20,6 +43,38 @@ const RequestService = () => {
      const address = form.address.value;
 
      console.log(service, property, container_size, price, name, date, email, phone, address );
+
+     const requestInfo = {
+          service: service,
+          property: property,
+          container_size: container_size,
+          price: price,
+          name: user?.displayName,
+          date: date,
+          email: user?.email,
+          phone: phone,
+          address: address
+     }
+     
+
+     axiosPublic.post('/requestServices', requestInfo).then((res) => {
+      if(res.data.insertedId){
+             console.log("User Added into database");
+             
+                           Swal.fire({
+                             position: "top-end",
+                             icon: "success",
+                             title: "Service Requested  Successfully",
+                             showConfirmButton: false,
+                             timer: 1500,
+                           });
+             
+                           navigate("/");
+      }
+     })
+
+
+
      
 
   }
@@ -126,35 +181,41 @@ const RequestService = () => {
                 name="property_size"
                 />
               </div> */}
-
+ 
 
                <div className="mb-10">
                 <label className="font-bold">Container Size*</label>
-                  <select
+                     <select
                   defaultValue="Nothing"
                   className="select select-neutral mt-4"
                   name="container_size"
-                >
-                  <option>32 Gallon Trash</option>
-                  <option>64 Gallon Trash</option>
-                  <option>76 Gallon Trash</option>
-                  <option>100 Gallon Trash</option>
-                  <option>200 Gallon Trash</option>
-                  <option>No Required</option>
-                  
-                </select>
+                  onChange={handleContainerChange}
+              >
+                <option>32 Gallon Trash</option>
+                <option>64 Gallon Trash</option>
+                <option>76 Gallon Trash</option>
+                <option>100 Gallon Trash</option>
+                <option>200 Gallon Trash</option>
+                <option>No Required</option>
+              </select>
               </div>
+
+             
 
 
                 <div className="mb-10">
-                <label className="font-bold">Price*</label>
-                  <input 
+                <label className="font-bold">Price(tk)*</label>
+                       <input 
                 type="number" 
-                className="input w-full my-4 border-black " 
+                className="input w-full my-4 border-black"
                 placeholder="Price tk"
                 name="price"
-                />
+                value={price}
+                readOnly
+              />
               </div>
+
+             
 
 
                <div className="mb-10">
@@ -162,8 +223,9 @@ const RequestService = () => {
                   <input 
                 type="text" 
                 className="input w-full my-4 border-black " 
-                placeholder="Name"
+                placeholder={user?.displayName}
                 name="name"
+                readOnly
                 />
               </div>
 
@@ -182,8 +244,9 @@ const RequestService = () => {
                   <input 
                 type="email" 
                 className="input w-full my-4 border-black"
-                placeholder="Email" 
+                placeholder={user?.email} 
                 name="email"
+                readOnly
                 />
               </div>
 
