@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import img from "../assets/images/shop.jpg";
 import { Link } from "react-router";
 import { FaArrowRight } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Shop = () => {
   const [shopItems, setShopItems] = useState([]);
@@ -50,7 +53,7 @@ const Shop = () => {
         >
           <div className="hero-overlay"></div>
           <div className="hero-content text-neutral-content text-center">
-            <div className="max-w-md">
+            <div data-aos="zoom-out" className="max-w-md">
               <h1 className="mb-5 text-5xl font-bold">Visit Our Eco Shop </h1>
               <p className="mb-5">
                 Explore Sustainable Solutions for Your Waste Management Needs

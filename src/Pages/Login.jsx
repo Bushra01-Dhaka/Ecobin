@@ -41,12 +41,18 @@ const Login = () => {
     <div>
       <div className="flex flex-col lg:flex-row justify-between items-center gap-6 lg:px-10 px-6">
         {/* left */}
-        <video className="h-[100vh] w-[100%] p-6" autoPlay loop muted>
+        <video 
+        data-aos="zoom-in-left"
+        data-aos-duration="1200"
+        className="h-[100vh] w-[100%] p-6" autoPlay loop muted>
           <source src={LogImg} type="video/mp4"></source>
         </video>
 
         {/* right */}
-        <div className="w-full text-slate-900 p-6 lg:mt-6">
+        <div
+        data-aos="fade-right"
+        data-aos-duration="1200"
+        className="w-full text-slate-900 p-6 lg:mt-6">
           <h2 className="text-4xl uppercase text-center pb-6">Welcome Back</h2>
 
           {/* form */}

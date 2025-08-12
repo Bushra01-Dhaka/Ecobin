@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Register = () => {
   const { createUser, UpdateUserProfile } = useContext(AuthContext);
@@ -67,6 +70,8 @@ const Register = () => {
       <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:px-10 px-6">
         {/* left */}
         <video
+          data-aos="fade-left"
+          data-aos-duration="1200"
           className="flex-1 h-[70vh] w-[80%] mx-auto p-6"
           autoPlay
           loop
@@ -76,7 +81,10 @@ const Register = () => {
         </video>
 
         {/* right */}
-        <div className="flex-1 w-full text-slate-900 p-6 lg:mt-6">
+        <div
+        data-aos="fade-right"
+        data-aos-duration="1200"
+        className="flex-1 w-full text-slate-900 p-6 lg:mt-6">
           <h2 className="text-4xl uppercase text-center pb-6">
             Create Account
           </h2>

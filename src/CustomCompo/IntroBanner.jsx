@@ -1,9 +1,12 @@
 import CustomButton from "../Hooks/CustomButton";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 
 const IntroBanner = () => {
   return (
-    <div className="relative h-[80vh] w-[80%] mx-auto overflow-hidden rounded-md shadow-lg">
+    <div data-aos="zoom-out" data-aos-duration="1500" className="relative h-[80vh] w-[80%] mx-auto overflow-hidden rounded-md shadow-lg">
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 h-full w-full object-cover"

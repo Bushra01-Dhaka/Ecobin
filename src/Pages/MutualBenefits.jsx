@@ -1,11 +1,14 @@
 import HoverDevCards from "../CustomCompo/HoverDevCards";
 
 import CustomButton from "../Hooks/CustomButton";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const MutualBenefits = () => {
   return (
     <div className="">
-      <div className="min-h-[50vh] flex justify-center items-center ">
+      <div data-aos="fade-in" data-aos-duration="1500" className="min-h-[50vh] flex justify-center items-center ">
         <div className="max-w-3xl mx-auto p-8 lg:p-0">
           <h2 className="text-4xl lg:text-6xl text-center text-slate-800 font-semibold">
             Mutual Benefit Program for{" "}

@@ -9,6 +9,7 @@ import AboutUs from "../Pages/AboutUs";
 import ServiceDetails from "../Components/DashboardCompo/ServiceDetails";
 import Packages from "../Pages/Packages";
 import RequestService from "../Pages/RequestService";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
         },
         {
           path:"requestService",
-          element:<RequestService></RequestService>
+          element:<PrivateRoute><RequestService></RequestService></PrivateRoute>
         }
       ]
     },

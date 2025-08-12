@@ -9,6 +9,9 @@ import img2 from "../../assets/images/d2.jpg";
 import img3 from "../../assets/images/d6.jpg";
 import img4 from "../../assets/images/d10.jpg";
 import MutualBenefits from "../../Pages/MutualBenefits";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -43,7 +46,9 @@ const ServiceDetails = () => {
           }}
         >
           <div className="hero-overlay"></div>
-          <div className="hero-content text-white text-center">
+          <div data-aos="zoom-in-down"
+               data-aos-duration="1200" 
+           className="hero-content text-white text-center">
             <div>
               <div className="max-w-lg">
                 <h1 className="mb-5 text-3xl lg:text-5xl font-bold uppercase">
@@ -51,7 +56,7 @@ const ServiceDetails = () => {
                 </h1>
                 <p className="mb-5">{eachService?.service_short_description}</p>
               </div>
-              <CustomButton label="Request Service" to=""></CustomButton>
+              <CustomButton label="Request Service" to="/requestService"></CustomButton>
             </div>
           </div>
         </div>
@@ -74,7 +79,7 @@ const ServiceDetails = () => {
       <div className="flex flex-col-reverse lg:flex-row justify-between items-start gap-10 px-6 lg:px-10 py-20">
         {/* left side */}
         <div className="">
-          <div className="bg-green-50 lg:w-[350px] rounded-xl shadow-2xl py-6">
+          <div data-aos="fade-up" data-aos-duration="1200" className="bg-green-50 lg:w-[350px] rounded-xl shadow-2xl py-6">
             <h3 className=" text-2xl py-6 text-center text-slate-800 font-bold">
               Our Services
             </h3>
@@ -88,7 +93,7 @@ const ServiceDetails = () => {
             </div>
           </div>
 
-          <div className="lg:w-[350px] bg-linear-to-r from-green-700 to-green-500 text-white p-6 rounded-md shadow-2xl my-10">
+          <div data-aos="fade-up" data-aos-duration="2000" className="lg:w-[350px] bg-linear-to-r from-green-700 to-green-500 text-white p-6 rounded-md shadow-2xl my-10">
             <h3 className="text-2xl font-bold">
               Trusted And Reliable Waste Collection!
             </h3>
@@ -150,7 +155,7 @@ const ServiceDetails = () => {
 
           {/* image gallery */}
 
-          <div className="my-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div data-aos="zoom-in" data-aos-duration="3000" className="my-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             <img
               src={img1}
               alt=""

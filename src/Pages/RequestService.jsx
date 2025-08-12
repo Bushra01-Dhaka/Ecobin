@@ -3,6 +3,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const RequestService = () => {
 
@@ -13,7 +16,7 @@ const RequestService = () => {
   const navigate = useNavigate();
 
   
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(550);
 
   const containerPrices = {
     "32 Gallon Trash": 500,
@@ -82,7 +85,7 @@ const RequestService = () => {
 
   return (
     <div>
-      <div className="min-h-[60vh] flex justify-center items-center ">
+      <div data-aos="zoom-in-up" className="min-h-[60vh] flex justify-center items-center ">
         <div className="max-w-3xl mx-auto p-8 lg:p-0">
           <h2 className="text-4xl lg:text-6xl text-center text-slate-800 font-semibold">
             Eco-Friendly Pickup at Your Doorstep{" "}
@@ -96,7 +99,7 @@ const RequestService = () => {
 
       <div className="my-10 flex flex-col lg:flex-row justify-center items-start gap-10 px-6 lg:px-20 py-6 ">
         {/* left */}
-        <div className=" w-[400px]  bg-linear-to-tl from-[#059212] to-[#9BEC00] rounded-md shadow-2xl text-white p-10 text-justify hover:bg-linear-to-tr transition-transform duration-200 cursor-pointer">
+        <div data-aos="fade-right" className=" w-[400px]  bg-linear-to-tl from-[#059212] to-[#9BEC00] rounded-md shadow-2xl text-white p-10 text-justify hover:bg-linear-to-tr transition-transform duration-200 cursor-pointer">
           <h3 className="text-3xl my-6 font-bold">
             Trusted And Reliable Waste Collection!
           </h3>
@@ -144,6 +147,7 @@ const RequestService = () => {
                   defaultValue="Residential Waste Collection"
                   className="select select-neutral mt-4"
                   name="service"
+                  required
                 >
                   <option>Residential Waste Collection</option>
                   <option>Commercial Waste Management</option>
@@ -161,6 +165,7 @@ const RequestService = () => {
                   defaultValue="Your Apartment/House"
                   className="select select-neutral mt-4"
                   name="property"
+                  required
                 >
                   <option>Your Apartment/House</option>
                   <option>Industry</option>
@@ -226,6 +231,7 @@ const RequestService = () => {
                 placeholder={user?.displayName}
                 name="name"
                 readOnly
+                required
                 />
               </div>
 
@@ -235,6 +241,7 @@ const RequestService = () => {
                 type="date" 
                 className="input w-full my-4 border-black" 
                 name="date"
+                required
                 />
               </div>
 
@@ -257,6 +264,7 @@ const RequestService = () => {
                 className="input w-full my-4 border-black"
                 placeholder="Phone Number" 
                 name="phone"
+                required
                 />
               </div>
 
@@ -268,6 +276,7 @@ const RequestService = () => {
                 className="input w-full my-4 border-black" 
                 name="address"
                 placeholder="Black Street, Uk - 2204"
+                required
                 ></textarea>
               </div>
 

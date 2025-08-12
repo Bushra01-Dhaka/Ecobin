@@ -3,11 +3,14 @@ import img1 from "../../assets/images/i2.jpg";
 import { SiGooglecontaineroptimizedos } from "react-icons/si";
 import { LiaCommentsDollarSolid } from "react-icons/lia";
 import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const WhyChooseUs = () => {
   return (
     <div className="md:px-10 px-6  flex flex-col-reverse lg:flex-row justify-center items-center py-10 lg:gap-8">
-      <div className="flex-1 w-[100%] lg:h-auto lg:mx-auto">
+      <div data-aos="fade-in" className="flex-1 w-[100%] lg:h-auto lg:mx-auto">
         <img className="" src={img} alt="" />
         <img
           className="hidden lg:block relative right-[-330px] top-[-250px] rounded-lg shadow-2xl border-r-4 border-b-4 border-[#059212]"
@@ -15,7 +18,7 @@ const WhyChooseUs = () => {
           alt=""
         />
       </div>
-      <div className="flex-1 pb-10 lg:p-8 p-4">
+      <div  className="flex-1 pb-10 lg:p-8 p-4">
         <p className="py-4 text-[#059212] text-lg font-bold">Why Choose Us</p>
         <h1 className="font-semibold text-4xl text-slate-800">Why choose our Ecobin services</h1>
         <div className="text-lg">

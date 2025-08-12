@@ -2,6 +2,10 @@
 import banner_img from "../../assets/images/5.png";
 import { Link } from "react-router";
 import { TiTick } from "react-icons/ti";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 const CustomerSupportBanner = () => {
   return (
     <div className="lg:px-10 px-6 py-6 rounded-md">
@@ -36,7 +40,7 @@ const CustomerSupportBanner = () => {
         </div>
       </div>
 
-      <div className="py-20 bg-linear-to-r from-[#059212] to-[#9BEC00] text-white flex flex-col lg:flex-row justify-between items-start  lg:px-10 px-6 rounded-lg lg:max-w-[1200px] lg:relative top-[-120px] mx-auto ">
+      <div data-aos="fade-up" data-aos-duration="3000"  className="py-20 bg-linear-to-r from-[#059212] to-[#9BEC00] text-white flex flex-col lg:flex-row justify-between items-start  lg:px-10 px-6 rounded-lg lg:max-w-[1200px] lg:relative top-[-120px] mx-auto ">
         <div className="lg:py-0 py-6">
           <p className="py-4 text-center lg:text-justify">Recycle Materials</p>
           <h2 className="lg:text-5xl text-4xl  text-center lg:text-justify  lg:max-w-[500px] font-bold">

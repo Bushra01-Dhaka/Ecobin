@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useLocation } from "react-router";
+import { Navigate, useLocation } from "react-router";
 import logo from "../assets/images/logo2.png"
 
 
@@ -25,7 +25,7 @@ const PrivateRoute = ({ children }) => {
   if (user) {
     return children;
   }
-  return <Navigate to="/login" state = {{from: location}} replace></Navigate>;
+  return <Navigate to="/register" state = {{from: location}} replace></Navigate>;
 };
 
 export default PrivateRoute;

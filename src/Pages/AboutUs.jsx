@@ -3,8 +3,12 @@ import IntroBanner from "../CustomCompo/IntroBanner";
 import PictureCards from "../CustomCompo/PictureCards";
 import myPic from "../assets/images/self.jpeg";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa6";
-import nadirPic from "../assets/images/nadir.jpg";
+// import nadirPic from "../assets/images/nadir.jpg";
+import nadirPic from "../assets/images/maria.jpg";
 import MutualBenefits from "./MutualBenefits";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const AboutUs = () => {
   return (
@@ -82,7 +86,8 @@ const AboutUs = () => {
               src={nadirPic}
               alt=""
             />
-            <p className="pt-4 text-xl font-semibold">Nadir Nibras</p>
+            {/* <p className="pt-4 text-xl font-semibold">Nadir Nibras</p> */}
+             <p className="pt-4 text-xl font-semibold">Farah Sabrin Maria</p>
             <p className="">UI/UX Designer</p>
             <div className="flex justify-center items-center gap-4 py-4 text-3xl font-bold text-slate-800 ">
               <Link to="https://nadironthego.com/">

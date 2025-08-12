@@ -1,5 +1,8 @@
 import img from "../assets/images/d4.jpg"
 import MutualBenefits from "./MutualBenefits";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Packages = () => {
     return (
@@ -13,7 +16,7 @@ const Packages = () => {
                     >
                       <div className="hero-overlay"></div>
                       <div className="hero-content text-neutral-content text-center">
-                        <div className="max-w-md">
+                        <div data-aos="zoom-out" className="max-w-md">
                           <h1 className="mb-5 text-5xl font-bold">Our Packages</h1>
                           <p className="mb-5">Choose the Plan That Fits Your Needs and Budget</p>
                         </div>

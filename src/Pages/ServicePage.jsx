@@ -5,6 +5,9 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { HiArrowRight } from "react-icons/hi";
 import MaskImage from "../CustomCompo/MaskImage";
 import MutualBenefits from "./MutualBenefits";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const ServicePage = () => {
   const [services, setServices] = useState([]);
@@ -27,7 +30,7 @@ const ServicePage = () => {
         >
           <div className="hero-overlay"></div>
           <div className="hero-content text-neutral-content text-center">
-            <div className="max-w-md">
+            <div data-aos="zoom-out" className="max-w-md">
               <h1 className="mb-5 text-5xl font-bold">Ecobin Services</h1>
               <p className="mb-5">Explore Our Waste Management Solutions</p>
             </div>
