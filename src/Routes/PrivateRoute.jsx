@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Navigate, useLocation } from "react-router";
-import logo from "../assets/images/logo2.png"
+import logo from "../assets/images/logo.png"
 
 
 const PrivateRoute = ({ children }) => {
@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
               src={logo}
               alt=""
             />
-        <h2 className=" text-2xl text-black font-bold">Ecobin</h2>
+        <h2 className=" text-4xl text-black font-bold">Ecobin</h2>
       </div>
     );
   }

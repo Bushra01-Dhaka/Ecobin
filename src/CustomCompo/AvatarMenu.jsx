@@ -41,7 +41,7 @@ const AvatarMenu = () => {
           <div className="absolute top-14 right-0 bg-white border border-gray-200 rounded-lg shadow-lg w-48 p-3 z-10">
             <ul className="space-y-2">
             <li className="text-lg font-semibold">{user?.displayName}!</li>
-             <Link to='/userManageAccount'>
+             <Link to='dashboard/dashContent'>
              <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">My Dashboard</li>
              </Link>
              <Link to="/userPackages">

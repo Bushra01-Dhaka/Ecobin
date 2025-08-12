@@ -11,6 +11,8 @@ import Packages from "../Pages/Packages";
 import RequestService from "../Pages/RequestService";
 import PrivateRoute from "./PrivateRoute";
 import Error from "../Pages/Error";
+import Dashboard from "../Layout/Dashboard";
+import DashContent from "../Components/DashboardCompo/DashContent";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +60,16 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path:"dashboard",
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children:[
+       {
+         path:"dashContent",
+         element:<DashContent></DashContent>
+       },
+      ]
+    }
   ]);
   
 
