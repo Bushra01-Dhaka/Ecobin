@@ -10,11 +10,13 @@ import ServiceDetails from "../Components/DashboardCompo/ServiceDetails";
 import Packages from "../Pages/Packages";
 import RequestService from "../Pages/RequestService";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../Pages/Error";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <Error></Error>,
       children:
       [
         {
