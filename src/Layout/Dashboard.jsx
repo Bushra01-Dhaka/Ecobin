@@ -62,7 +62,7 @@ const Dashboard = () => {
               </li>
               <li>
                 <SlCalender className="inline text-white text-2xl mr-2"  />
-                <NavLink to="/dashboard/allAppointments" className="hidden lg:inline">Request Services</NavLink>
+                <NavLink to="/dashboard/myRequestedServices" className="hidden lg:inline">Request Services</NavLink>
               </li>
               <li>
                 <TbPackages className="inline text-white text-2xl mr-2" />

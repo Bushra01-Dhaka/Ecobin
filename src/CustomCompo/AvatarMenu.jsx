@@ -1,11 +1,23 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const AvatarMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-  console.log(user?.name)
+  console.log(user?.name);
+  const axiosPublic = useAxiosPublic()
+
+   const [activeUser, setActiveUser] = useState([]);
+  
+    useEffect(() => {
+      if (user?.email) {
+        axiosPublic.get(`/users/${user.email}`)
+          .then((res) => setActiveUser(res.data))
+          .catch((error) => console.error("Error fetching profile: ", error));
+      }
+    }, [axiosPublic, user?.email]);
 
   // Toggle menu on avatar click
   const toggleMenu = () => {
@@ -31,7 +43,12 @@ const AvatarMenu = () => {
                         </>
                         :
                         <>
-                           <img src="https://i.ibb.co.com/F77zzXn/upload-area.png" alt="User Avatar" />
+                           {/* <img src="https://i.ibb.co.com/F77zzXn/upload-area.png" alt="User Avatar" /> */}
+                           {
+                            <img 
+                            src={activeUser?.photo} />
+                           }
+                           
                          </>
                     }
           </div>
@@ -44,10 +61,10 @@ const AvatarMenu = () => {
              <Link to='dashboard/dashContent'>
              <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">My Dashboard</li>
              </Link>
-             <Link to="/userPackages">
+             {/* <Link to="/userPackages">
              <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">My Packages</li>
-             </Link>
-             <Link to="/myProfile">
+             </Link> */}
+             <Link to="myProfile">
              <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">My Profile</li>
              </Link>
               <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer text-red-600"> <Link to="">

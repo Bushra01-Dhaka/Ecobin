@@ -13,6 +13,8 @@ import PrivateRoute from "./PrivateRoute";
 import Error from "../Pages/Error";
 import Dashboard from "../Layout/Dashboard";
 import DashContent from "../Components/DashboardCompo/DashContent";
+import UserRequestedServices from "../Components/DashboardCompo/UserRequestedServices";
+import MyProfile from "../Components/DashboardCompo/MyProfile";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +59,10 @@ const router = createBrowserRouter([
         {
           path:"requestService",
           element:<PrivateRoute><RequestService></RequestService></PrivateRoute>
+        },
+        {
+          path:"myProfile",
+          element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
         }
       ]
     },
@@ -68,6 +74,11 @@ const router = createBrowserRouter([
          path:"dashContent",
          element:<DashContent></DashContent>
        },
+       {
+        path:"myRequestedServices",
+        element:<UserRequestedServices></UserRequestedServices>
+       },
+      
       ]
     }
   ]);

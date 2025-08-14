@@ -21,6 +21,7 @@ const RequestService = () => {
     "64 Gallon Trash": 1000,
     "76 Gallon Trash": 1200,
     "150 Gallon Trash": 1800,
+    "200 Gallon Trash": 2000,
     "1 Truck Demolition/Garbage Waste": 5000,
     "2 Trucks Demolition/Garbage Waste": 10000,
     "3 Trucks Demolition/Garbage Waste": 1500,
@@ -82,7 +83,7 @@ const RequestService = () => {
           timer: 1500,
         });
 
-        navigate("/");
+        navigate("/dashboard/myRequestedServices");
       }
     });
   };
@@ -208,7 +209,7 @@ const RequestService = () => {
                   <option>32 Gallon Trash</option>
                   <option>64 Gallon Trash</option>
                   <option>76 Gallon Trash</option>
-                  <option>100 Gallon Trash</option>
+                  <option>150 Gallon Trash</option>
                   <option>200 Gallon Trash</option>
                   <option>1 Truck Demolition/Garbage Waste</option>
                   <option>2 Trucks Demolition/Garbage Waste</option>
