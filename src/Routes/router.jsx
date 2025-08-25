@@ -16,6 +16,7 @@ import DashContent from "../Components/DashboardCompo/DashContent";
 import UserRequestedServices from "../Components/DashboardCompo/UserRequestedServices";
 import MyProfile from "../Components/DashboardCompo/MyProfile";
 import RequestService1 from "../Pages/RequestService1";
+import ShopDetails from "../Components/DashboardCompo/ShopDetails";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         {
           path:"serviceDetails/:id",
           element:<ServiceDetails></ServiceDetails>
+        },
+        {
+          path:"shopDetails/:id",
+          element:<ShopDetails></ShopDetails>
         },
         {
           path:"packages",

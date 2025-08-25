@@ -101,7 +101,7 @@ const Shop = () => {
 
                 <p className="text-slate-700">{item?.product_intro}</p>
 
-                <Link to="">
+                <Link to={`/shopDetails/${item?._id}`}>
                   <button
                     className="btn-block p-2 myBtn bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold text-white hover:border-0  rounded-lg my-4"
                     onMouseMove={handleMouseMove}
