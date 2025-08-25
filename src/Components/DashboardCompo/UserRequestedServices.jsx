@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { Link } from "react-router";
 
 const UserRequestedServices = () => {
   const { user } = useContext(AuthContext);
@@ -61,7 +62,10 @@ useEffect(() => {
                         <p className="text-lg py-2"><span className="font-semibold">Address:</span>  {item?.address}</p>
                         <p className="text-lg py-2"><span className="font-semibold">Price:</span>  {item?.price} tk</p>
                         <p className="text-lg py-2"><span className="font-semibold">Date:</span>  {item?.date}</p>
-                        <p className="text-lg py-2"><span className="font-semibold">Status:</span>  <span className="rounded-full text-white text-xs p-2 bg-[#059212]">{item?.status} Requested</span></p>
+                        <p className="text-lg py-2"><span className="font-semibold">Status:</span>  <span className="rounded-full text-black font-bold text-xs p-2 bg-slate-400">{item?.status} Requested</span></p>
+                        <Link><button 
+                          className="btn btn-block btn-info bg-gradient-to-r from-[#1a6322] to-[#059212] ...  rounded-md text-white  h-[40px]  hover:bg-gradient-to-l border-0 hover:text-white mt-6"
+                        >Pay Now</button></Link>
                         </div>
                     </div>
                 </div>)

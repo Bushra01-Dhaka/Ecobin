@@ -78,7 +78,10 @@ const MyProfile = () => {
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Name: {activeUser.name}</h2>
           <h2 className="text-xl font-semibold">Email: {activeUser.email}</h2>
-          <h2 className="text-xl font-semibold">Phone: +88{activeUser.phone}</h2>
+          {
+            activeUser?.phone &&   <h2 className="text-xl font-semibold">Phone: +88{activeUser.phone}</h2>
+          }
+        
         </div>
       </div>
     </div>

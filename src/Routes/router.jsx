@@ -15,6 +15,7 @@ import Dashboard from "../Layout/Dashboard";
 import DashContent from "../Components/DashboardCompo/DashContent";
 import UserRequestedServices from "../Components/DashboardCompo/UserRequestedServices";
 import MyProfile from "../Components/DashboardCompo/MyProfile";
+import RequestService1 from "../Pages/RequestService1";
 
 const router = createBrowserRouter([
     {
@@ -58,7 +59,8 @@ const router = createBrowserRouter([
         },
         {
           path:"requestService",
-          element:<PrivateRoute><RequestService></RequestService></PrivateRoute>
+          // element:<PrivateRoute><RequestService></RequestService></PrivateRoute>
+          element:<PrivateRoute><RequestService1></RequestService1></PrivateRoute>
         },
         {
           path:"myProfile",

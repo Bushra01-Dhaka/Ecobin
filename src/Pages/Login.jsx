@@ -1,17 +1,20 @@
 import { SlSocialGoogle } from "react-icons/sl";
 import LogImg from "../assets/images/Login.mp4";
 import { AiFillGithub } from "react-icons/ai";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 
 
 const Login = () => {
 
-  const {signIn} = useContext(AuthContext);
+  const {signIn, googleSignIn} = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
+   const location = useLocation();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -31,9 +34,48 @@ const Login = () => {
               showConfirmButton: false,
               timer: 1500
             });
-      navigate("/")
+      // navigate("/")
+       navigate(location && '/');
     })
-  }
+  };
+
+
+
+  const handleGoogleLogin = () => {
+  googleSignIn()
+    .then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+
+      const userInfo = {
+        name: result.user?.displayName,
+        email: result.user?.email,
+        photo: result.user?.photoURL,
+        status: "user"
+      };
+
+      axiosPublic.post("/users", userInfo).then((res) => {
+        if (res.data.insertedId) {
+          console.log("New user added to database");
+        } else {
+          console.log("User already exists in database");
+        }
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Logged in Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        // Always navigate, whether new user or existing
+        navigate("/");
+      });
+    })
+    .catch((error) => console.error(error)); // ✅ correct error handling
+};
+
 
 
 
@@ -88,7 +130,7 @@ const Login = () => {
             <p className="text-center">Or</p>
 
             <div className="py-6 flex justify-center items-center gap-4 cursor-pointer">
-              <SlSocialGoogle className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
+              <SlSocialGoogle onClick={handleGoogleLogin} className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
               <AiFillGithub className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
             </div>
 

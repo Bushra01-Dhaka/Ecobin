@@ -3,7 +3,7 @@ import { SlSocialGoogle } from "react-icons/sl";
 import registerImg from "../assets/images/User registration.mp4";
 import { AiFillGithub } from "react-icons/ai";
 import { Link, useNavigate } from "react-router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import AOS from "aos";
@@ -11,8 +11,10 @@ import "aos/dist/aos.css";
 AOS.init();
 
 const Register = () => {
-  const { createUser, UpdateUserProfile } = useContext(AuthContext);
+  const { createUser, UpdateUserProfile, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState("");
+  const [success, setSuccess] = useState("");
 
    const axiosPublic = useAxiosPublic();
 
@@ -25,6 +27,33 @@ const Register = () => {
     const password = form.password.value;
 
     console.log(name, phone, email, password);
+
+
+    // new
+     // register validate
+
+    if (password.length < 6) {
+      setRegisterError("Password should  be at least 6 characters or longer");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setRegisterError("You should have at least one Uppercase character.");
+      return;
+    } else if (!/[@#$%^&*]/.test(password)) {
+      setRegisterError("You should have at least one special character.");
+      return;
+    } else if (!/[0-9]/.test(password)) {
+      setRegisterError("You should have at least one number.");
+      return;
+    } 
+
+    //reset error
+    setRegisterError("");
+    setSuccess("");
+
+    //
+
+    // new
+
     createUser(email, password).then((result) => {
       const user = result.user;
       console.log(user);
@@ -64,6 +93,46 @@ const Register = () => {
       // end
     });
   };
+
+  // GOOGLE SIGN UP
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+
+          const userInfo = {
+            name: result.user?.displayName,
+            email: result.user?.email,
+            photo: result.user?.photoURL,
+            status: "user"
+          }
+
+          axiosPublic.post("/users", userInfo).then((res) => {
+            if (res.data.insertedId) {
+              console.log("User Added into database");
+
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Account Created Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+
+              navigate("/login");
+            }
+          });
+        
+      })
+      .then((error) => console.error(error));
+  };
+
+
+
+
+
+
 
   return (
     <div>
@@ -129,11 +198,16 @@ const Register = () => {
               </fieldset>
             </form>
 
+                {registerError && (
+          <p className=" my-2 text-sm text-center font-semibold text-red-700">{registerError}</p>
+        )}
+        {success && <p className="my-2 text-sm font-semibold text-center text-green-600 t-4">{success}</p>}
+
             <hr className="my-8" />
             <p className="text-center">Or</p>
 
             <div className="py-6 flex justify-center items-center gap-4 cursor-pointer">
-              <SlSocialGoogle className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
+              <SlSocialGoogle onClick={handleGoogleLogin} className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
               <AiFillGithub className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
             </div>
 
