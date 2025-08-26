@@ -17,6 +17,7 @@ import UserRequestedServices from "../Components/DashboardCompo/UserRequestedSer
 import MyProfile from "../Components/DashboardCompo/MyProfile";
 import RequestService1 from "../Pages/RequestService1";
 import ShopDetails from "../Components/DashboardCompo/ShopDetails";
+import UserCartItems from "../Components/DashboardCompo/UserCartItems";
 
 const router = createBrowserRouter([
     {
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
        {
         path:"myRequestedServices",
         element:<UserRequestedServices></UserRequestedServices>
+       },
+       {
+        path:"userCartItems",
+        element:<UserCartItems></UserCartItems>
        },
       
       ]

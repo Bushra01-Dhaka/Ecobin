@@ -9,19 +9,6 @@ const UserRequestedServices = () => {
 
   const [bookingData, setBookingData] = useState([]);
 
-//   useEffect(() => {
-//       if (user?.email) {
-//         axiosPublic
-//           .get(`/requestServices?email=${user?.email}`)
-//           .then((res) => {
-//             setBookingData(res.data);
-//           })
-//           .catch((error) => {
-//             console.error("Error in booking: ", error);
-//           });
-//       }
-//     }, [axiosPublic, user?.email]);
-
 useEffect(() => {
   if (user?.email) {
     setBookingData([]); // Clear previous data immediately when email changes
@@ -61,7 +48,7 @@ useEffect(() => {
                         <p className="text-lg py-2"><span className="font-semibold">Container Size:</span>  {item?.container_size}</p>
                         <p className="text-lg py-2"><span className="font-semibold">Address:</span>  {item?.address}</p>
                         <p className="text-lg py-2"><span className="font-semibold">Price:</span>  {item?.price} tk</p>
-                        <p className="text-lg py-2"><span className="font-semibold">Date:</span>  {item?.date}</p>
+                        <p className="text-lg py-2"><span className="font-semibold">Booking Date:</span>  {item?.date}</p>
                         <p className="text-lg py-2"><span className="font-semibold">Status:</span>  <span className="rounded-full text-black font-bold text-xs p-2 bg-slate-400">{item?.status} Requested</span></p>
                         <Link><button 
                           className="btn btn-block btn-info bg-gradient-to-r from-[#1a6322] to-[#059212] ...  rounded-md text-white  h-[40px]  hover:bg-gradient-to-l border-0 hover:text-white mt-6"

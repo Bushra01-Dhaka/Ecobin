@@ -10,6 +10,31 @@ const DashContent = () => {
   //   const [activeUser, setActiveUser] = useState([]);
   console.log(user?.email);
 
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+  if (user?.email) {
+    setCartItems([]); // Clear previous data immediately when email changes
+    axiosPublic
+      .get(`/cart?email=${user.email}`)
+      .then((res) => {
+        setCartItems(res.data);
+      })
+      .catch((error) => {
+        console.error("Error in booking: ", error);
+      });
+  } else {
+    setCartItems([]); // No logged-in user = no data
+  }
+}, [axiosPublic, user?.email]);
+  
+
+
+
+
+
+
+
   //   useEffect(() => {
 
   //     if(user?.email){
@@ -69,7 +94,7 @@ const DashContent = () => {
         <div>
           <h2 className="text-2xl font-semibold text-center text-slate-800 p-6 border-2 border-[#059212] rounded-md shadow-2xl">
             {" "}
-            Total My Cart:
+            Total My Cart: {cartItems?.length}
           </h2>
         </div>
         <div>

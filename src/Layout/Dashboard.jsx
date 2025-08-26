@@ -57,26 +57,24 @@ const Dashboard = () => {
           <div className="lg:w-72 min-h-screen max-h-full bg-gradient-to-tr from-[#1a6322] to-[#059212] hover:bg-gradient-to-l text-slate-100 lg:pt-10 shadow-lg fixed lg:static">
               <ul className="text-lg p-2 space-y-4 lg:px-6 font-bold">
               <li>
-                <RxDashboard className="inline text-white text-2xl mr-2" />
+              <Link to="/dashboard/dashContent"><RxDashboard className="inline text-white text-2xl mr-2" /></Link>
                 <NavLink to="/dashboard/dashContent" className="hidden lg:inline">Overview</NavLink>
               </li>
               <li>
-                <SlCalender className="inline text-white text-2xl mr-2"  />
+               <Link to="/dashboard/myRequestedServices"> <SlCalender className="inline text-white text-2xl mr-2"  /></Link>
                 <NavLink to="/dashboard/myRequestedServices" className="hidden lg:inline">Request Services</NavLink>
               </li>
               <li>
-                <TbPackages className="inline text-white text-2xl mr-2" />
+                <Link to="/dashboard/allPackages"><TbPackages className="inline text-white text-2xl mr-2" /></Link>
                 <NavLink to="/dashboard/allPackages" className="hidden lg:inline">My Packages</NavLink>
               </li>
               <li>
-                <FaShopify className="inline text-white text-2xl mr-2"></FaShopify>
-                {/* <IoListSharp className="inline text-white text-2xl mr-2" /> */}
-                <NavLink to="/dashboard/doctorList" className="hidden lg:inline">My Order Lists</NavLink>
+               <Link to="/dashboard/userCartItems"><FaShopify className="inline text-white text-2xl mr-2"></FaShopify></Link>
+                <NavLink to="/dashboard/userCartItems" className="hidden lg:inline">My Cart</NavLink>
               </li>
               <li>
-                <BiMoneyWithdraw className="inline text-white text-2xl mr-2" />
-                {/* <IoBagAdd className="inline text-white text-2xl mr-2" /> */}
-                <NavLink to="/dashboard/addDoctors" className="hidden lg:inline">My Payment List</NavLink>
+               <Link to="/dashboard"> <BiMoneyWithdraw className="inline text-white text-2xl mr-2" /></Link>
+                <NavLink to="/dashboard" className="hidden lg:inline">My Payment List</NavLink>
               </li>
               </ul>
           </div>
