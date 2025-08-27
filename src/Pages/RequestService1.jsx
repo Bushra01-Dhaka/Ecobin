@@ -221,6 +221,7 @@ const RequestService1 = () => {
                 >
                   <option>Your Apartment/House</option>
                   <option>Industry</option>
+                  <option>Construction & Demolition Waste Producer</option>
                   <option>Hospital</option>
                   <option>Educational Institution</option>
                   <option>Land Property</option>
@@ -255,7 +256,7 @@ const RequestService1 = () => {
                       required
                     >
                       <option value="">Select Product Type</option>
-                      <option>Solid Sands</option>
+                      <option>Solid Sands/Soils</option>
                       <option>Sand, Rubbish & Construction Demolish Waste</option>
                     </select>
                   </div>
