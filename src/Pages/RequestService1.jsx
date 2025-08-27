@@ -269,8 +269,8 @@ const RequestService1 = () => {
                       disabled={selectedService === "Mutual Benefit Program"}
                       required
                     >
-                      <option>Regular</option>
                       <option>Mutual</option>
+                      <option>Regular</option>
                     </select>
                   </div>
                 </>

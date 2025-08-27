@@ -65,8 +65,8 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/myRequestedServices" className="hidden lg:inline">Request Services</NavLink>
               </li>
               <li>
-                <Link to="/dashboard/allPackages"><TbPackages className="inline text-white text-2xl mr-2" /></Link>
-                <NavLink to="/dashboard/allPackages" className="hidden lg:inline">My Packages</NavLink>
+                <Link to="/dashboard/exploreBidPosts"><TbPackages className="inline text-white text-2xl mr-2" /></Link>
+                <NavLink to="/dashboard/exploreBidPosts" className="hidden lg:inline">Explore Bid Post</NavLink>
               </li>
               <li>
                <Link to="/dashboard/userCartItems"><FaShopify className="inline text-white text-2xl mr-2"></FaShopify></Link>
