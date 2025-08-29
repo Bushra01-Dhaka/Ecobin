@@ -52,31 +52,78 @@ const RequestService1 = () => {
     }
   };
 
-  const handleTruckNoChange = (event) => {
-    const T = parseInt(event.target.value) || 0;
-    setTruckNo(T);
+  // const handleTruckNoChange = (event) => {
+  //   const T = parseInt(event.target.value) || 0;
+  //   setTruckNo(T);
 
-    // price calculation based on service type
+  //   // price calculation based on service type
+  //   if (serviceType === "Mutual") {
+  //     setPrice(T * 5000);
+  //   } else {
+  //     setPrice(T * (5000 + 1500));
+  //   }
+  // };
+
+  // const handleServiceTypeChange = (event) => {
+  //   const type = event.target.value;
+  //   setServiceType(type);
+
+  //   // recalc price when service type changes
+  //   if (truckNo > 0) {
+  //     if (type === "Mutual") {
+  //       setPrice(truckNo * 5000);
+  //     } else {
+  //       setPrice(truckNo * (5000 + 1500));
+  //     }
+  //   }
+  // };
+
+
+
+
+  const handleTruckNoChange = (event) => {
+  const T = parseInt(event.target.value) || 0;
+  setTruckNo(T);
+
+  if (selectedService === "Construction & Demolition Waste") {
+    // Special logic only for C&D Waste
+    if (serviceType === "Mutual") {
+      setPrice(0.5 * (T * 5000)); // 50% discount for mutual
+    } else {
+      setPrice(T * 5000); // regular rate
+    }
+  } else {
+    // Default logic for other truck-based services
     if (serviceType === "Mutual") {
       setPrice(T * 5000);
     } else {
       setPrice(T * (5000 + 1500));
     }
-  };
+  }
+};
 
-  const handleServiceTypeChange = (event) => {
-    const type = event.target.value;
-    setServiceType(type);
+const handleServiceTypeChange = (event) => {
+  const type = event.target.value;
+  setServiceType(type);
 
-    // recalc price when service type changes
-    if (truckNo > 0) {
+  if (truckNo > 0) {
+    if (selectedService === "Construction & Demolition Waste") {
+      // Special logic only for C&D Waste
+      if (type === "Mutual") {
+        setPrice(0.5 * (truckNo * 5000));
+      } else {
+        setPrice(truckNo * 5000);
+      }
+    } else {
+      // Default logic for other services
       if (type === "Mutual") {
         setPrice(truckNo * 5000);
       } else {
         setPrice(truckNo * (5000 + 1500));
       }
     }
-  };
+  }
+};
 
   const handleServiceRequest = (event) => {
     event.preventDefault();
@@ -101,6 +148,7 @@ const RequestService1 = () => {
       email: user?.email,
       phone,
       address,
+      status: "Requested"
     };
 
     // only add truck_no, product_type & service_type if required
@@ -207,7 +255,7 @@ const RequestService1 = () => {
                   <option>Construction & Demolition Waste</option>
                   <option>Land Filling Service</option>
                   <option>Industrial Waste Management</option>
-                  <option>Mutual Benefit Program</option>
+                  {/* <option>Mutual Benefit Program</option> */}
                 </select>
               </div>
 

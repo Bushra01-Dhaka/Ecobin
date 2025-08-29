@@ -85,10 +85,8 @@ const Faq = () => {
             within 2 days.
             <br />
             <br />
-            <strong>Mutual Benefit Plan:</strong> Book in advance—at least 15
-            days before your demolition or construction work. In this plan, you
-            only pay the workers’ fee and 50% of the service charge. No
-            transportation cost is applied under this plan.
+            <strong>Mutual Benefit Plan:</strong> Book in advance—at least 15 days before your demolition or construction work. In this plan, you only pay the 50% of the transportation charge. No
+            worker cost is applied under this plan.
           </p>
           }
    
@@ -111,16 +109,11 @@ const Faq = () => {
             your waste responsibly. You can choose from two flexible service
             options: <br />
             <br />
-            <strong>Instant Land filling Service:</strong>If you need
-            land filling within 2 days, you’ll need to pay the land filling
-            service charge along with the material cost (for soil, rubbish,
-            etc.).
+            <strong>Regular Plan:</strong>If you need
+            land filling within at least 2 days, you’ll need to pay the land filling service charge along with the material cost (for soil, rubbish, etc.).
             <br />
             <br />
-            <strong>Mutual Benefit Plan:</strong> Book in advance—at least 15
-            days before your planned work or demolition. With this plan, you
-            only pay the workers’ charge and 50% of the service charge, No
-            extra cost for land filling materials.
+            <strong>Mutual Benefit Plan:</strong> Book in advance—at least 15 days before your planned work or demolition. With this plan, you only pay the workers’ charge and transportation charge, No extra cost for land filling materials.
           </p>
           }
           
