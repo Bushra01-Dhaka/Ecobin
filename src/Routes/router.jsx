@@ -19,6 +19,7 @@ import RequestService1 from "../Pages/RequestService1";
 import ShopDetails from "../Components/DashboardCompo/ShopDetails";
 import UserCartItems from "../Components/DashboardCompo/UserCartItems";
 import ExploreBidPosts from "../Components/DashboardCompo/ExploreBidPosts";
+import AdminDashContent from "../Components/DashboardCompo/AdminDashContent";
 
 const router = createBrowserRouter([
     {
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
        {
         path:"exploreBidPosts",
         element:<ExploreBidPosts></ExploreBidPosts>
+       },
+       {
+        path:"adminDashboardContent",
+        element:<AdminDashContent></AdminDashContent>
        },
       
       ]

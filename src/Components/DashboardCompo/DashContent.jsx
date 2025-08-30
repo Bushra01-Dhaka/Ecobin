@@ -29,37 +29,6 @@ const DashContent = () => {
 }, [axiosPublic, user?.email]);
   
 
-
-
-
-
-
-
-  //   useEffect(() => {
-
-  //     if(user?.email){
-  //       axiosPublic.get(`/users?email=${user?.email}`)
-  //       .then(res => {
-  //         setActiveUser(res.data);
-  //         console.log("Active User:", res.data);
-  //       })
-  //     }
-
-  //   }, [axiosPublic, user?.email])
-
-  //   useEffect(() => {
-  //    const activeId = activeUser?._id;
-  //       axiosPublic.get(`/requestServices/${activeId}`)
-  //       .then((res) => {
-  //          setBookingData(res.data);
-  //          //console.log("My Booking Data: ", res.data);
-  //       })
-  //       .catch((error) => {
-  //          console.error('Error in booking: ', error);
-  //        });
-
-  //   }, [axiosPublic, activeUser?._id])
-
  useEffect(() => {
   if (user?.email) {
     setBookingData([]); // Clear previous data immediately when email changes

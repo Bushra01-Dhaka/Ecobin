@@ -1,13 +1,15 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import logo from "../assets/images/logo.png";
 import { Link } from "react-router";
 import { MdClose, MdMenu } from "react-icons/md";
 import "./customBtn.css";
 import { AuthContext } from "../Provider/AuthProvider";
 import AvatarMenu from "../CustomCompo/AvatarMenu";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 const Navbar = () => {
-
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [userData, setUserData] = useState([]);
+  const axiosPublic = useAxiosPublic();
 
   const [menuOpen, setMenuOpen] = useState("false");
   const btnRef = useRef(null);
@@ -23,8 +25,14 @@ const Navbar = () => {
     btnRef.current.style.setProperty("--y", `${y}px`);
   };
 
- 
+  // get user data using email
+  useEffect(() => {
+    axiosPublic.get(`/users/${user?.email}`).then((res) => {
+      setUserData(res.data);
+    });
+  }, []);
 
+  console.log("User Status", userData?.status);
 
   return (
     <div className="md:max-w-screen-2xl mx-auto bg-slate-50 flex justify-between items-center px-6 md:px-10 shadow-lg lg:py-2 py-4">
@@ -52,9 +60,6 @@ const Navbar = () => {
             <Link to="/services">Services</Link>
           </li>
 
-          {/* <li className="text-md text-black hover:text-[#059212] font-semibold">
-            <Link to="/requestService">Request Service</Link>
-          </li> */}
           <li className="text-md text-black hover:text-[#059212] font-semibold">
             <Link to="/shop">Shop</Link>
           </li>
@@ -65,45 +70,53 @@ const Navbar = () => {
           <li className="text-lg text-black hover:text-[#059212] font-semibold">
             <Link to="/packages">Packages</Link>
           </li>
+
+          {/* Dashboard for Moderator and Admin */}
+          {userData?.status === "user" && !(userData?.status === "Admin")? (
+            <li className="text-lg text-black hover:text-[#059212] font-semibold">
+              <Link to="/dashboard/dashContent">Control Panel</Link>
+            </li>
+          ):
+          (
+            <li className="text-lg text-black hover:text-[#059212] font-semibold">
+              <Link to="/dashboard/adminDashboardContent">Admin Control Panel</Link>
+            </li>
+          )
+          }
         </ul>
       </div>
 
-
-      {
-        user ? <>
-        <AvatarMenu></AvatarMenu>
-        </> :
+      {user ? (
         <>
-         <div className="flex justify-center items-center gap-2">
-        <Link to="login">
-          <button
-            className="btn myBtn font-semibold bg-linear-to-r from-[#059212] to-[#9BEC00] text-white hover:border-0  rounded-full"
-            onMouseMove={handleMouseMove}
-            ref={btnRef}
-          >
-            <span>Log in</span>
-          </button>
-        </Link>
-
-        {menuOpen ? (
-          <MdClose
-            onClick={onToggleMenu}
-            className="text-3xl cursor-pointer md:hidden text-slate-900"
-          />
-        ) : (
-          <MdMenu
-            onClick={onToggleMenu}
-            className="text-3xl cursor-pointer md:hidden text-slate-900"
-          />
-        )}
-         </div>
+          <AvatarMenu></AvatarMenu>
         </>
-      }
+      ) : (
+        <>
+          <div className="flex justify-center items-center gap-2">
+            <Link to="login">
+              <button
+                className="btn myBtn font-semibold bg-linear-to-r from-[#059212] to-[#9BEC00] text-white hover:border-0  rounded-full"
+                onMouseMove={handleMouseMove}
+                ref={btnRef}
+              >
+                <span>Log in</span>
+              </button>
+            </Link>
 
-
-
-
-
+            {menuOpen ? (
+              <MdClose
+                onClick={onToggleMenu}
+                className="text-3xl cursor-pointer md:hidden text-slate-900"
+              />
+            ) : (
+              <MdMenu
+                onClick={onToggleMenu}
+                className="text-3xl cursor-pointer md:hidden text-slate-900"
+              />
+            )}
+          </div>
+        </>
+      )}
 
       {/* <div className="flex justify-center items-center gap-2">
         <Link to="login">
@@ -128,8 +141,6 @@ const Navbar = () => {
           />
         )}
       </div> */}
-
-
     </div>
   );
 };
