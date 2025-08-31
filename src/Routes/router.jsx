@@ -20,6 +20,12 @@ import ShopDetails from "../Components/DashboardCompo/ShopDetails";
 import UserCartItems from "../Components/DashboardCompo/UserCartItems";
 import ExploreBidPosts from "../Components/DashboardCompo/ExploreBidPosts";
 import AdminDashContent from "../Components/DashboardCompo/AdminDashContent";
+import TotalUsers from "../Components/AdminDash/TotalUsers";
+import TotalModerator from "../Components/AdminDash/TotalModerator";
+import TotalBidReq from "../Components/AdminDash/TotalBidReq";
+import AllBidPosts from "../Components/AdminDash/AllBidPosts";
+import AllCartItems from "../Components/AdminDash/AllCartItems";
+import AllServices from "../Components/AdminDash/AllServices";
 
 const router = createBrowserRouter([
     {
@@ -100,6 +106,30 @@ const router = createBrowserRouter([
         path:"adminDashboardContent",
         element:<AdminDashContent></AdminDashContent>
        },
+       {
+        path:"totalUsers",
+        element:<TotalUsers></TotalUsers>
+       },
+       {
+        path:"totalModerators",
+        element:<TotalModerator></TotalModerator>
+       },
+       {
+        path:"totalBidRequests",
+        element:<TotalBidReq></TotalBidReq>
+       },
+       {
+        path:"allServices",
+        element:<AllServices></AllServices>
+       },
+       {
+        path:"allBidPosts",
+        element:<AllBidPosts></AllBidPosts>
+       },
+       {
+        path:"allCartItems",
+        element:<AllCartItems></AllCartItems>
+       }
       
       ]
     }

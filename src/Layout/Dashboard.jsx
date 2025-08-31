@@ -7,9 +7,13 @@ import { IoListSharp } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
 import myLogo from "../assets/images/logo.png";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaShopify } from "react-icons/fa";
+import { FaShopify, FaShoppingCart, FaUser, FaUsers } from "react-icons/fa";
 import { BiMoneyWithdraw } from "react-icons/bi";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { ImHammer2 } from "react-icons/im";
+import { GrServices } from "react-icons/gr";
+import { FaSignsPost } from "react-icons/fa6";
+import { MdMiscellaneousServices } from "react-icons/md";
 
 const Dashboard = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -17,12 +21,16 @@ const Dashboard = () => {
   const [userData, setUserData] = useState([]);
   const axiosPublic = useAxiosPublic();
 
-  // get user data using email
+
+  // get specific user data using email
   useEffect(() => {
     axiosPublic.get(`/users/${user?.email}`).then((res) => {
       setUserData(res.data);
     });
   }, []);
+
+
+
 
   const handleLogOut = () => {
     logOut()
@@ -70,7 +78,7 @@ const Dashboard = () => {
 
       <div className="flex justify-between lg:items-start">
         {/* dashboard side bar */}
-        <div className="lg:w-72 min-h-screen max-h-full bg-gradient-to-tr from-[#1a6322] to-[#059212] hover:bg-gradient-to-l text-slate-100 lg:pt-10 shadow-lg fixed lg:static">
+        <div className="lg:w-72 min-h-screen bg-gradient-to-tr from-[#1a6322] to-[#059212] hover:bg-gradient-to-l text-slate-100 lg:pt-10 shadow-lg fixed lg:static">
           <ul className="text-lg p-2 space-y-4 lg:px-6 font-bold">
             {userData?.status === "Admin" && (
               <>
@@ -85,6 +93,93 @@ const Dashboard = () => {
                     Admin Dashboard
                   </NavLink>
                 </li>
+
+                <li>
+                  <Link to="/dashboard/totalUsers">
+                    <FaUsers className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/totalUsers"
+                    className="hidden lg:inline"
+                  >
+                    All Users
+                  </NavLink>
+                </li>
+
+                 <li>
+                  <Link to="/dashboard/totalModerators">
+                    <FaUser className="inline text-white text-xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/totalModerators"
+                    className="hidden lg:inline"
+                  >
+                    Moderators
+                  </NavLink>
+                </li>
+
+                 <li>
+                  <Link to="/dashboard/allServices">
+                    <MdMiscellaneousServices className="inline text-white text-xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/allServices"
+                    className="hidden lg:inline"
+                  >
+                    All Services
+                  </NavLink>
+                </li>
+
+                 <li>
+                  <Link to="/dashboard/allBidPosts">
+                    <FaSignsPost className="inline text-white text-xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/allBidPosts"
+                    className="hidden lg:inline"
+                  >
+                    All Bid Posts
+                  </NavLink>
+                </li>
+
+                  <li>
+                  <Link to="/dashboard/totalBidRequests">
+                    <ImHammer2 className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/totalBidRequests"
+                    className="hidden lg:inline"
+                  >
+                    Bid Requests
+                  </NavLink>
+                </li>
+
+                 <li>
+                  <Link to="/dashboard/allCartItems">
+                    <FaShoppingCart className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/allCartItems"
+                    className="hidden lg:inline"
+                  >
+                    Cart Items
+                  </NavLink>
+                </li>
+
+                 <li>
+                  <Link to="/dashboard">
+                    <GrServices className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard"
+                    className="hidden lg:inline"
+                  >
+                    Total Service Paid
+                  </NavLink>
+                </li>
+                <div className="py-6">
+                   <hr />
+                </div>
               </>
             )}
 
@@ -142,6 +237,8 @@ const Dashboard = () => {
               </NavLink>
             </li>
           </ul>
+          <br />
+          <br />
         </div>
 
         {/* dashboard content */}
