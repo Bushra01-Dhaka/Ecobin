@@ -72,7 +72,7 @@ const Navbar = () => {
           </li>
 
           {/* Dashboard for Moderator and Admin */}
-          {userData?.status === "user" && !(userData?.status === "Admin")? (
+          {/* {userData?.status === "user" && !(userData?.status === "Admin")? (
             <li className="text-lg text-black hover:text-[#059212] font-semibold">
               <Link to="/dashboard/dashContent">Control Panel</Link>
             </li>
@@ -82,7 +82,7 @@ const Navbar = () => {
               <Link to="/dashboard/adminDashboardContent">Admin Control Panel</Link>
             </li>
           )
-          }
+          } */}
         </ul>
       </div>
 

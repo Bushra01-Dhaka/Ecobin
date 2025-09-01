@@ -43,6 +43,8 @@ const TotalUsers = () => {
                 key={item?._id}
                 item={item}
                 index={index}
+                normalUser={normalUser}
+                setNormalUser={setNormalUser}
               ></TotalUserTable>
             ))}
           </table>

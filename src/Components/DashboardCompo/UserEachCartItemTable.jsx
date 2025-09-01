@@ -1,7 +1,7 @@
 import { ImBin2 } from "react-icons/im";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-const UserEachCartItemTable = ({ item, userCartData, setUserCartData }) => {
+const UserEachCartItemTable = ({ item, userCartData, setUserCartData, index }) => {
   const {
     _id,
     product_no,
@@ -45,8 +45,8 @@ const UserEachCartItemTable = ({ item, userCartData, setUserCartData }) => {
 
   return (
       <tbody className="text-center">
-        <tr className="text-slate-800">
-        <td>{product_no}</td>
+        <tr className="text-slate-800 font-semibold">
+        <td>{index + 1}</td>
         <td><img className="w-[70px] h-[70px] object-cover rounded-[50px]" src={product_image} alt="product image" /></td>
         <td>{product_name}</td>
         <td>{price} tk</td>

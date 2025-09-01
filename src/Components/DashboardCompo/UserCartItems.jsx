@@ -29,10 +29,15 @@ const UserCartItems = () => {
   
 
   // Calculate Total Price of all Cart Items
+  // const totalPrice = userCartData.reduce(
+  //   (total, item) => total + item?.price,
+  //   0
+  // );
+
   const totalPrice = userCartData.reduce(
-    (total, item) => total + item?.price,
-    0
-  );
+  (total, item) => total + (Number(item?.price) || 0),
+  0
+);
 
   return (
     <div>
@@ -67,10 +72,11 @@ const UserCartItems = () => {
                 <th>Pay Action</th>
               </tr>
             </thead>
-            {userCartData.map((item) => (
+            {userCartData.map((item, index) => (
               <UserEachCartItemTable
                 key={item?._id}
                 item={item}
+                index={index}
                 userCartData={userCartData}
                 setUserCartData={setUserCartData}
               ></UserEachCartItemTable>
