@@ -40,6 +40,8 @@ const AllBidPosts = () => {
                 key={item?._id}
                 item={item}
                 index={index}
+                allBidPost={allBidPost}
+                setAllBidPosts={setAllBidPosts}
                 ></AllBidPostTable>)
               }
           </table>

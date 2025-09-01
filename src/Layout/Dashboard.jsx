@@ -131,6 +131,18 @@ const Dashboard = () => {
                 </li>
 
                  <li>
+                  <Link to="/dashboard/allRequestedServices">
+                    <MdMiscellaneousServices className="inline text-white text-xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/allRequestedServices"
+                    className="hidden lg:inline"
+                  >
+                    Requested Services
+                  </NavLink>
+                </li>
+
+                 <li>
                   <Link to="/dashboard/allBidPosts">
                     <FaSignsPost className="inline text-white text-xl mr-2" />
                   </Link>
@@ -150,7 +162,7 @@ const Dashboard = () => {
                     to="/dashboard/totalBidRequests"
                     className="hidden lg:inline"
                   >
-                    Bid Requests
+                    Bided Requests
                   </NavLink>
                 </li>
 

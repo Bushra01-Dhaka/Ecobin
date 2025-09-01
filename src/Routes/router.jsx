@@ -26,6 +26,7 @@ import TotalBidReq from "../Components/AdminDash/TotalBidReq";
 import AllBidPosts from "../Components/AdminDash/AllBidPosts";
 import AllCartItems from "../Components/AdminDash/AllCartItems";
 import AllServices from "../Components/AdminDash/AllServices";
+import AllRequestedServices from "../Components/AdminDash/AllRequestedServices";
 
 const router = createBrowserRouter([
     {
@@ -121,6 +122,10 @@ const router = createBrowserRouter([
        {
         path:"allServices",
         element:<AllServices></AllServices>
+       },
+       {
+        path:"allRequestedServices",
+        element:<AllRequestedServices></AllRequestedServices>
        },
        {
         path:"allBidPosts",

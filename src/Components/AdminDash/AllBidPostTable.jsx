@@ -1,6 +1,8 @@
 import { ImBin2 } from "react-icons/im";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
-const AllBidPostTable = ({ item, index }) => {
+const AllBidPostTable = ({ item, index, allBidPost, setAllBidPost }) => {
   const {
     _id,
     service_no,
@@ -18,6 +20,34 @@ const AllBidPostTable = ({ item, index }) => {
     service_type,
     status,
   } = item;
+
+  const axiosPublic = useAxiosPublic();
+    const handleDelete = (id) => {
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#059212",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              axiosPublic.delete(`/bidPost/${id}`).then((res) => {
+                if (res.data.deletedCount > 0) {
+                  console.log("Error :", res)
+                  // ✅ update state without refetch
+                  setAllBidPost(allBidPost?.filter((item) => item?._id !== id));
+                  Swal.fire({
+                    title: "Deleted!",
+                    text: "User Post has been deleted.",
+                    icon: "success", 
+                  });
+                }
+              });
+            }
+          });
+        };
   return (
     <tbody className="text-center border-0 border-b border-b-slate-300">
       <tr className="text-slate-800 font-semibold">
@@ -30,7 +60,7 @@ const AllBidPostTable = ({ item, index }) => {
         <td>{date}</td>
         <td>{status}</td>
         <td>
-          <button className="btn-sm p-2 rounded-md bg-red-700 text-white hover:bg-red-800">
+          <button onClick={() => {handleDelete(_id)}} className="btn-sm p-2 rounded-md bg-red-700 text-white hover:bg-red-800">
             <ImBin2 className="text-xl" />
           </button>
         </td>
