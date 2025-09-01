@@ -27,6 +27,8 @@ import AllBidPosts from "../Components/AdminDash/AllBidPosts";
 import AllCartItems from "../Components/AdminDash/AllCartItems";
 import AllServices from "../Components/AdminDash/AllServices";
 import AllRequestedServices from "../Components/AdminDash/AllRequestedServices";
+import ModeratorDashContent from "../Components/ModeratorDash/ModeratorDashContent";
+import UserSavedCart from "../Components/ModeratorDash/UserSavedCart";
 
 const router = createBrowserRouter([
     {
@@ -134,6 +136,14 @@ const router = createBrowserRouter([
        {
         path:"allCartItems",
         element:<AllCartItems></AllCartItems>
+       },
+       {
+        path:"moderatorDash",
+        element:<ModeratorDashContent></ModeratorDashContent>
+       },
+       {
+        path:"userSavedCarts",
+        element:<UserSavedCart></UserSavedCart>
        }
       
       ]

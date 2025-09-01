@@ -15,7 +15,9 @@ const AvatarMenu = () => {
     if (user?.email) {
       axiosPublic
         .get(`/users/${user.email}`)
-        .then((res) => setActiveUser(res.data))
+        .then((res) => {
+          setActiveUser(res.data);
+        })
         .catch((error) => console.error("Error fetching profile: ", error));
     }
   }, [axiosPublic, user?.email]);
@@ -61,11 +63,35 @@ const AvatarMenu = () => {
             <div className="absolute top-14 right-0 bg-white border border-gray-200 rounded-lg shadow-lg w-48 p-3 z-10">
               <ul className="space-y-2">
                 <li className="text-lg font-semibold">{user?.displayName}!</li>
-                <Link to="dashboard/dashContent">
+                {
+                  activeUser?.status === "Admin" && (<>
+                   <Link to="dashboard/adminDashboardContent">
+                  <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">
+                  Admin Dashboard
+                  </li>
+                </Link>
+                  </>)
+                }
+                {
+                  activeUser?.status === "Moderator" && (<>
+                  <Link to="dashboard/moderatorDash">
+                  <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">
+                    Moderator Dashboard
+                  </li>
+                </Link>
+                  </>)
+                }
+
+                {
+                  activeUser?.status === "user" && (<>
+                     <Link to="dashboard/dashContent">
                   <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">
                     My Dashboard
                   </li>
                 </Link>
+                    </>)
+                }
+                
                 <Link to="/requestService">
                   <li className="hover:bg-gray-100 p-2 rounded-md cursor-pointer">
                     Request Service

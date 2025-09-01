@@ -35,7 +35,8 @@ const TotalUsers = () => {
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th>Delete</th>
+                <th>Change Status</th>
               </tr>
             </thead>
             {normalUser?.map((item, index) => (

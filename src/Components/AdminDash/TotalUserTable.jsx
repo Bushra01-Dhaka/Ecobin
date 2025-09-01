@@ -1,4 +1,4 @@
-import { FaUsers, FaUserSecret } from "react-icons/fa";
+import { FaEdit, FaUsers, FaUserSecret } from "react-icons/fa";
 import { ImBin2 } from "react-icons/im";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
@@ -33,6 +33,42 @@ const TotalUserTable = ({ item, index, normalUser, setNormalUser }) => {
       }
     });
   };
+
+
+  // change Status of user to Moderator
+  const handleUpdateStatus = async () => {
+    try {
+      const res = await axiosPublic.patch(`/users/${email}`, {
+        status: "Moderator", // updating status only
+      });
+
+      if (res.data.success) {
+        Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User status updated to Moderator ✅",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+      } else {
+        alert(res.data.message || "Failed to update status ❌");
+      }
+    } catch (error) {
+      console.error("Error updating status:", error);
+      alert("Something went wrong!");
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
   return (
     <tbody className="text-center border-0 border-b border-b-slate-300">
       <tr className="text-slate-800  font-semibold">
@@ -53,11 +89,16 @@ const TotalUserTable = ({ item, index, normalUser, setNormalUser }) => {
           </button>
           :
           <button className="btn-sm p-2 rounded-md bg-green-700 text-white hover:bg-green-800">
-            <FaUserSecret className="text-xl"></FaUserSecret>
+            <FaUserSecret className="text-xl"></FaUserSecret> Moderator
           </button>}
         </td>
         <td>
             <button onClick={() => {handleDeleteUser(_id)}} on className="btn-sm p-2 rounded-md bg-red-700 text-white hover:bg-red-800"><ImBin2 className="text-xl" /></button>
+        </td>
+        <td>
+          <button onClick={handleUpdateStatus} className="btn-sm p-2 rounded-md bg-green-700 text-white hover:bg-green-800">
+           Make Admin
+          </button>
         </td>
       </tr>
     </tbody>

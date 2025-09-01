@@ -21,16 +21,12 @@ const Dashboard = () => {
   const [userData, setUserData] = useState([]);
   const axiosPublic = useAxiosPublic();
 
-
   // get specific user data using email
   useEffect(() => {
     axiosPublic.get(`/users/${user?.email}`).then((res) => {
       setUserData(res.data);
     });
   }, []);
-
-
-
 
   const handleLogOut = () => {
     logOut()
@@ -80,10 +76,11 @@ const Dashboard = () => {
         {/* dashboard side bar */}
         <div className="lg:w-72 min-h-screen bg-gradient-to-tr from-[#1a6322] to-[#059212] hover:bg-gradient-to-l text-slate-100 lg:pt-10 shadow-lg fixed lg:static">
           <ul className="text-lg p-2 space-y-4 lg:px-6 font-bold">
+            {/* For Admin Dashboard */}
             {userData?.status === "Admin" && (
               <>
                 <li>
-                  <Link to="/dashboard/dashContent">
+                  <Link to="/dashboard/adminDashboardContent">
                     <RxDashboard className="inline text-white text-2xl mr-2" />
                   </Link>
                   <NavLink
@@ -106,7 +103,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
-                 <li>
+                <li>
                   <Link to="/dashboard/totalModerators">
                     <FaUser className="inline text-white text-xl mr-2" />
                   </Link>
@@ -118,7 +115,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
-                 <li>
+                <li>
                   <Link to="/dashboard/allServices">
                     <MdMiscellaneousServices className="inline text-white text-xl mr-2" />
                   </Link>
@@ -130,7 +127,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
-                 <li>
+                <li>
                   <Link to="/dashboard/allRequestedServices">
                     <MdMiscellaneousServices className="inline text-white text-xl mr-2" />
                   </Link>
@@ -142,7 +139,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
-                 <li>
+                <li>
                   <Link to="/dashboard/allBidPosts">
                     <FaSignsPost className="inline text-white text-xl mr-2" />
                   </Link>
@@ -154,7 +151,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
-                  <li>
+                <li>
                   <Link to="/dashboard/totalBidRequests">
                     <ImHammer2 className="inline text-white text-2xl mr-2" />
                   </Link>
@@ -166,7 +163,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
-                 <li>
+                <li>
                   <Link to="/dashboard/allCartItems">
                     <FaShoppingCart className="inline text-white text-2xl mr-2" />
                   </Link>
@@ -174,27 +171,104 @@ const Dashboard = () => {
                     to="/dashboard/allCartItems"
                     className="hidden lg:inline"
                   >
-                    Cart Items
+                    Shop Products
                   </NavLink>
                 </li>
 
-                 <li>
+                <li>
                   <Link to="/dashboard">
                     <GrServices className="inline text-white text-2xl mr-2" />
                   </Link>
-                  <NavLink
-                    to="/dashboard"
-                    className="hidden lg:inline"
-                  >
+                  <NavLink to="/dashboard" className="hidden lg:inline">
                     Total Service Paid
                   </NavLink>
                 </li>
                 <div className="py-6">
-                   <hr />
+                  <hr />
                 </div>
               </>
             )}
 
+            {/* For Moderators */}
+
+            {userData?.status === "Moderator" && (<>
+                  <li>
+                  <Link to="/dashboard/moderatorDash">
+                    <RxDashboard className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/moderatorDash"
+                    className="hidden lg:inline"
+                  >
+                    Moderator Dashboard
+                  </NavLink>
+                </li>
+
+                  <li>
+                  <Link to="/dashboard/allServices">
+                    <MdMiscellaneousServices className="inline text-white text-xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/allServices"
+                    className="hidden lg:inline"
+                  >
+                    All Services
+                  </NavLink>
+                </li>
+
+                <li>
+                  <Link to="/dashboard/allRequestedServices">
+                    <MdMiscellaneousServices className="inline text-white text-xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/allRequestedServices"
+                    className="hidden lg:inline"
+                  >
+                    Requested Services
+                  </NavLink>
+                </li>
+
+                <li>
+                  <Link to="/dashboard/allBidPosts">
+                    <FaSignsPost className="inline text-white text-xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/allBidPosts"
+                    className="hidden lg:inline"
+                  >
+                    All Bid Posts
+                  </NavLink>
+                </li>
+
+                <li>
+                  <Link to="/dashboard/totalBidRequests">
+                    <ImHammer2 className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/totalBidRequests"
+                    className="hidden lg:inline"
+                  >
+                    Bided Requests
+                  </NavLink>
+                </li>
+
+                  <li>
+                  <Link to="/dashboard/userSavedCarts">
+                    <FaShoppingCart className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/userSavedCarts"
+                    className="hidden lg:inline"
+                  >
+                    User Saved Carts
+                  </NavLink>
+                </li>
+
+                 <div className="py-6">
+                  <hr />
+                </div>
+                
+            </>)}
 
             {/* For All Types User */}
             <li>
