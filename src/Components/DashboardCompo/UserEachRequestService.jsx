@@ -93,6 +93,7 @@ const UserEachRequestService = ({ item, index }) => {
           timer: 1500,
         });
         // navigate("/dashboard/exploreBidPosts");
+        window.location.reload(); // force reload
       }
     });
   };

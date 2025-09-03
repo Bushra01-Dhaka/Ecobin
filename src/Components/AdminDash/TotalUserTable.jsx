@@ -96,8 +96,8 @@ const TotalUserTable = ({ item, index, normalUser, setNormalUser }) => {
             <button onClick={() => {handleDeleteUser(_id)}} on className="btn-sm p-2 rounded-md bg-red-700 text-white hover:bg-red-800"><ImBin2 className="text-xl" /></button>
         </td>
         <td>
-          <button onClick={handleUpdateStatus} className="btn-sm p-2 rounded-md bg-green-700 text-white hover:bg-green-800">
-           Make Admin
+          <button onClick={handleUpdateStatus} className="btn-sm rounded-md bg-green-700 text-white text-md p-1 hover:bg-green-800">
+           Make Moderator
           </button>
         </td>
       </tr>

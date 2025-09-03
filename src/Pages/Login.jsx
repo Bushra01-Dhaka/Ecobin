@@ -2,7 +2,7 @@ import { SlSocialGoogle } from "react-icons/sl";
 import LogImg from "../assets/images/Login.mp4";
 import { AiFillGithub } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
@@ -14,7 +14,9 @@ const Login = () => {
   const {signIn, googleSignIn} = useContext(AuthContext);
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
-   const location = useLocation();
+  const location = useLocation();
+  const [logInError, setLogInError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -23,10 +25,19 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
+       //reset error
+    setLogInError("");
+    setSuccess("");
+
+    //
+
     signIn(email, password)
     .then(result => {
       const user = result.user;
       console.log(user);
+
+        setSuccess("Logged In Successfully.");
+
       Swal.fire({
               position: "top-end",
               icon: "success",
@@ -34,9 +45,16 @@ const Login = () => {
               showConfirmButton: false,
               timer: 1500
             });
-      // navigate("/")
        navigate(location && '/');
     })
+     .catch((error) => {
+        console.error(error);
+        setLogInError("Failed to Login!");
+        Swal("Logged in failed! Please provide valid email & password.", {
+          button: "Ok",
+        });
+      });
+
   };
 
 
@@ -125,6 +143,17 @@ const Login = () => {
                 />
               </fieldset>
             </form>
+
+            {logInError && (
+              <p className=" my-2 text-sm text-center font-semibold text-red-700">
+                {logInError}
+              </p>
+            )}
+            {success && (
+              <p className="my-2 text-sm font-semibold text-center text-green-600 t-4">
+                {success}
+              </p>
+            )}
 
             <hr className="my-8" />
             <p className="text-center">Or</p>

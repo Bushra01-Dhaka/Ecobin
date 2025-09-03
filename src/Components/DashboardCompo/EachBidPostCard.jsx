@@ -1,8 +1,9 @@
 import { FaHammer } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const EachBidPostCard = ({ item }) => {
   const {
@@ -24,6 +25,7 @@ const EachBidPostCard = ({ item }) => {
   } = item;
 
   const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
   const [bidderData, setBidderData] = useState([]);
   const [isBidClicked, setIsBidClicked] = useState(false);
   let bidderService = "";
@@ -37,11 +39,29 @@ const EachBidPostCard = ({ item }) => {
   console.log("Bidder Now Service: ", bidderService)
 
   // Let's find out the Requested_Service Id to change the Bidder's service status
+  // useEffect(() => {
+  //   axiosPublic.get(`/requestServices/${bidderService}`).then((res) => {
+  //     setBidderData(res.data);
+  //   });
+  // }, []);
+
+  const {user} = useContext(AuthContext);
+
   useEffect(() => {
-    axiosPublic.get(`/requestServices/${bidderService}`).then((res) => {
+  if (!user?.email) return; // only run if user exists
+
+  axiosPublic
+    .get(`/requestServices/${bidderService}/${user.email}`)
+    .then((res) => {
       setBidderData(res.data);
+    })
+    .catch((err) => {
+      console.error("Error fetching bidder data:", err);
     });
-  }, []);
+}, [bidderService, user?.email]); // add dependencies
+
+
+
 
   console.log("Bidder Id: ", bidderData?._id);
   console.log("Bidder Id: ", bidderData);
@@ -122,6 +142,7 @@ const EachBidPostCard = ({ item }) => {
         });
       }
       setIsBidClicked(true); // ✅ disable button
+      navigate("/dashboard/exploreBidPosts")
     } catch (err) {
       console.error("Error updating bid deal:", err);
     }

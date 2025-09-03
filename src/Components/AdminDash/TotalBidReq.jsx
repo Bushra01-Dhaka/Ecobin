@@ -33,6 +33,7 @@ const TotalBidReq = () => {
                 <th>Bidder Status</th>
                 <th>Send Mail</th>
                 <th>Action</th>
+                <th>Disable Bidder Post</th>
               </tr>
             </thead>
             {
