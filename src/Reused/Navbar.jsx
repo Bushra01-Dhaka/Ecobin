@@ -67,9 +67,10 @@ const Navbar = () => {
             <Link to="/aboutUs">About Us</Link>
           </li>
 
-          <li className="text-lg text-black hover:text-[#059212] font-semibold">
+
+          {/* <li className="text-lg text-black hover:text-[#059212] font-semibold">
             <Link to="/packages">Packages</Link>
-          </li>
+          </li> */}
 
           {/* Dashboard for Moderator and Admin */}
           {/* {userData?.status === "user" && !(userData?.status === "Admin")? (

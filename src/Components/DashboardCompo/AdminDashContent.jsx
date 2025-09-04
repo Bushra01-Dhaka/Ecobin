@@ -9,12 +9,15 @@ const AdminDashContent = () => {
   const [allUserData, setAllUserData] = useState([]);
   const [normalUser, setNormalUser] = useState([]);
   const [allBidPost, setAllBidPost] = useState([]);
+  const [allModerators, setAllModerators] = useState([]);
 
   useEffect(() => {
     axiosPublic.get(`/users`).then((res) => {
       setAllUserData(res.data);
       const user = allUserData.filter((item) => item?.status === "user");
+      const moderator = allUserData.filter((item) => item?.status === "Moderator")
       setNormalUser(user);
+      setAllModerators(moderator);
     });
   });
 
@@ -48,7 +51,7 @@ const AdminDashContent = () => {
                 <FaUserShield  className="text-5xl mx-auto text-green-600" />
               </p>
               <p className="py-2 text-2xl text-center">Total Moderator</p>
-              <p className="text-2xl mx-auto font-bold text-green-600">4</p>
+              <p className="text-2xl mx-auto font-bold text-green-600">{allModerators?.length}</p>
             </div>
             <div className="text-center border-1 p-6 lg:w-[230px] rounded-md shadow-lg lg:h-[200px] transform transition-transform duration-800 hover:-translate-y-2 cursor-pointer">
               <p>
@@ -64,7 +67,7 @@ const AdminDashContent = () => {
                 <FaSackDollar className="text-5xl mx-auto text-green-600" />
               </p>
               <p className="py-2 text-2xl text-center">Total Payments</p>
-              <p className="text-2xl mx-auto font-bold text-green-600">4</p>
+              <p className="text-2xl mx-auto font-bold text-green-600"></p>
             </div>
 
           </div>

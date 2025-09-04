@@ -47,11 +47,11 @@ const UserEachCartItemTable = ({ item, userCartData, setUserCartData, index }) =
       <tbody className="text-center">
         <tr className="text-slate-800 font-semibold">
         <td>{index + 1}</td>
-        <td><img className="w-[70px] h-[70px] object-cover rounded-[50px]" src={product_image} alt="product image" /></td>
+        <td><img className="w-[70px] mx-auto h-[70px] object-cover rounded-[50px]" src={product_image} alt="product image" /></td>
         <td>{product_name}</td>
         <td>{price} tk</td>
         <td><button onClick={() => {handleDelete(_id)}}  className="btn-sm p-2 rounded-md bg-red-700 text-white hover:bg-red-800"><ImBin2 className="text-2xl" /></button></td>
-        <td><button className="btn-sm p-2 rounded-md bg-green-700 text-white hover:bg-green-800">Pay Now</button></td>
+        
       </tr>
       </tbody>
     

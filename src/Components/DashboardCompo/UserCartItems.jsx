@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import UserEachCartItemTable from "./UserEachCartItemTable";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const UserCartItems = () => {
   const { user } = useContext(AuthContext);
@@ -47,13 +48,23 @@ const UserCartItems = () => {
             Oops Cart is Empty!
           </h2>
         ) : (
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl lg:text-4xl font-semibold p-6  border-0 text-slate-800 text-center ">
+          <div className="flex justify-between items-center px-6">
+            <h2 className="text-2xl lg:text-4xl font-bold p-6  border-0 text-slate-800 text-center ">
               My Cart: ({userCartData?.length})
             </h2>
-            <h2 className="text-2xl lg:text-4xl font-semibold p-6  border-0 text-orange-500 text-center">
+            <h2 className="text-2xl lg:text-4xl font-semibold p-6  border-0 text-[#059212] text-center">
               Total Price: {totalPrice}tk
             </h2>
+
+            {
+              userCartData?.length ? 
+              <Link to={`/dashboard/payment`}>
+            <button className="btn-sm p-4 bg-orange-400  rounded-[50px]  text-white hover:bg-[#059212] cursor-pointer">Pay Now</button></Link>
+            :
+            <Link>
+            <button disabled className="btn-sm p-4 bg-orange-400  rounded-[50px]  text-white hover:bg-[#059212] cursor-pointer">Pay Now</button></Link>
+            }
+            
           </div>
         )}
       </div>
@@ -69,7 +80,6 @@ const UserCartItems = () => {
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Cancel Action</th>
-                <th>Pay Action</th>
               </tr>
             </thead>
             {userCartData.map((item, index) => (
