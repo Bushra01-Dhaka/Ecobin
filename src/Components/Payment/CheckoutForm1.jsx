@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 
 
-const CheckoutForm = () => {
+const CheckoutForm1 = () => {
      const stripe = useStripe();
      const elements = useElements();
      const [error, setError] = useState('');
@@ -18,13 +18,13 @@ const CheckoutForm = () => {
      const navigate = useNavigate();
 
      useEffect(() => {
-      axiosPublic.get(`/cart?email=${user?.email}`)
+      axiosPublic.get(`/requestServices?email=${user?.email}`)
       .then((res) => {
         setAllCartData(res.data)
       })
      },[axiosPublic,user?.email])
 
-     const totalPrice = allCartData.reduce( (total, item) => total + item.price,0)
+     const totalPrice = allCartData.reduce( (total, item) => total + parseFloat(item.price),0)
 
 
      useEffect(() => {
@@ -93,11 +93,11 @@ const CheckoutForm = () => {
               transactionId: paymentIntent?.id,
               date: new Date(),
               cartIds: allCartData.map(item => item._id),
-              menuItemIds: allCartData.map(item => item.product_id),
+            //   menuItemIds: allCartData.map(item => item.product_id),
               status: 'pending',
             }
 
-            const res = await axiosPublic.post(`/payments`, payment);
+            const res = await axiosPublic.post(`/servicePayments`, payment);
             console.log('payment saved', res.data);
 
             if(res.data?.paymentRequest?.insertedId){
@@ -146,4 +146,4 @@ const CheckoutForm = () => {
     );
 };
 
-export default CheckoutForm;
+export default CheckoutForm1;

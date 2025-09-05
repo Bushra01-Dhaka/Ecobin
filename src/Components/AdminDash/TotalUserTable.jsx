@@ -61,14 +61,6 @@ const TotalUserTable = ({ item, index, normalUser, setNormalUser }) => {
 
 
 
-
-
-
-
-
-
-
-
   return (
     <tbody className="text-center border-0 border-b border-b-slate-300">
       <tr className="text-slate-800  font-semibold">

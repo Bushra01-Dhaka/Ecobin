@@ -30,6 +30,9 @@ import AllRequestedServices from "../Components/AdminDash/AllRequestedServices";
 import ModeratorDashContent from "../Components/ModeratorDash/ModeratorDashContent";
 import UserSavedCart from "../Components/ModeratorDash/UserSavedCart";
 import Payment from "../Components/Payment/Payment";
+import PaymentHistory from "../Components/Payment History/PaymentHistory";
+import AllPaymentsList from "../Components/Payment History/AllPaymentsList";
+import Payment1 from "../Components/Payment/Payment1";
 
 const router = createBrowserRouter([
     {
@@ -149,6 +152,18 @@ const router = createBrowserRouter([
        {
         path:"payment",
         element:<Payment></Payment>
+       },
+       {
+         path:"servicePayment",
+         element:<Payment1></Payment1>
+       },
+       {
+        path:"paymentHistory",
+        element:<PaymentHistory></PaymentHistory>
+       },
+       {
+        path:"allCartPayment",
+        element:<AllPaymentsList></AllPaymentsList>
        }
       
       ]

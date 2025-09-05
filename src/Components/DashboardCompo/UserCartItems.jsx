@@ -68,7 +68,7 @@ const UserCartItems = () => {
           </div>
         )}
       </div>
-
+       
       <div className="lg:p-6">
         <div className="overflow-x-auto">
           <table className="table  lg:table-zebra">

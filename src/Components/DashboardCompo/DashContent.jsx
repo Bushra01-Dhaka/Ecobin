@@ -53,25 +53,25 @@ const DashContent = () => {
         </h2>
       </div>
 
-      <div className="py-10 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:px-10 px-20">
+      <div className="py-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:px-10 px-20">
         <div>
-          <h2 className="text-2xl font-semibold text-center text-slate-800 p-6 border-2 border-[#059212] rounded-md shadow-2xl">
+          <h2 className="text-2xl font-semibold text-center  p-6 bg-orange-400 border-2 text-white rounded-md shadow-2xl">
             {" "}
             Total Service Request: {bookingData?.length}
           </h2>
         </div>
         <div>
-          <h2 className="text-2xl font-semibold text-center text-slate-800 p-6 border-2 border-[#059212] rounded-md shadow-2xl">
+          <h2 className="text-2xl font-semibold text-center p-6 bg-[#059212] text-white border-2 border-[#059212] rounded-md shadow-2xl">
             {" "}
             Total My Cart: {cartItems?.length}
           </h2>
         </div>
-        <div>
+        {/* <div>
           <h2 className="text-2xl font-semibold text-center text-slate-800 p-6 border-2 border-[#059212] rounded-md shadow-2xl">
             {" "}
             Total Order:
           </h2>
-        </div>
+        </div> */}
       </div>
     </div>
   );

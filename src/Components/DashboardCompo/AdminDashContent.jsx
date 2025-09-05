@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaUsers } from "react-icons/fa";
 import { FaSackDollar, FaUserShield } from "react-icons/fa6";
 import { ImHammer2 } from "react-icons/im";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const AdminDashContent = () => {
    const axiosPublic = useAxiosPublic();
@@ -10,6 +11,28 @@ const AdminDashContent = () => {
   const [normalUser, setNormalUser] = useState([]);
   const [allBidPost, setAllBidPost] = useState([]);
   const [allModerators, setAllModerators] = useState([]);
+  const [allCartPayments, setAllCartPayments] = useState([]);
+  const [userServicePayment, setUserServicePayment] = useState([]);
+  const {user} = useContext(AuthContext);
+  
+
+    useEffect(() => {
+        axiosPublic.get(`/payments`)
+        .then((res) => {
+            setAllCartPayments(res.data);
+        })
+    },[axiosPublic, user?.email]);
+
+      useEffect(() => {
+      axiosPublic.get(`/servicePayments`)
+      .then((res) => {
+        setUserServicePayment(res.data);
+      })
+    },[axiosPublic])
+
+    const totalCartPrice = allCartPayments.reduce( (total, item) => total + item.price,0);
+
+     const totalServicePrice = userServicePayment.reduce( (total, item) => total + item.price,0)
 
   useEffect(() => {
     axiosPublic.get(`/users`).then((res) => {
@@ -67,10 +90,22 @@ const AdminDashContent = () => {
                 <FaSackDollar className="text-5xl mx-auto text-green-600" />
               </p>
               <p className="py-2 text-2xl text-center">Total Payments</p>
-              <p className="text-2xl mx-auto font-bold text-green-600"></p>
+              <p className="text-2xl mx-auto font-bold text-green-600">{allCartPayments?.length}</p>
             </div>
 
           </div>
+
+          <div className="p-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
+               <div className="bg-linear-to-r hover:bg-linear-to-l pointer-cursor from-[#1a6322] to-[#059212] p-6 py-4 h-[200px] flex justify-center items-center rounded-md shadow-2xl text-center">
+                <h3 className="text-3xl font-bold text-white">Service Payment <br /> {totalServicePrice} tk</h3>
+               </div>
+
+               <div className="bg-linear-to-r hover:bg-linear-to-l from-orange-500 to-orange-400 p-6 py-4 h-[200px] flex justify-center pointer-cursor items-center rounded-md shadow-2xl text-center">
+                <h3 className="text-3xl font-bold text-white">Cart Payment <br />{totalCartPrice} tk</h3>
+               </div>
+          </div>
+
+
         </div>
       </div>
     </div>

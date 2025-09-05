@@ -176,11 +176,11 @@ const Dashboard = () => {
                 </li>
 
                 <li>
-                  <Link to="/dashboard">
+                  <Link to="/dashboard/allCartPayment">
                     <GrServices className="inline text-white text-2xl mr-2" />
                   </Link>
-                  <NavLink to="/dashboard" className="hidden lg:inline">
-                    Total Service Paid
+                  <NavLink to="/dashboard/allCartPayment" className="hidden lg:inline">
+                    All Payment History
                   </NavLink>
                 </li>
                 <div className="py-6">
@@ -314,12 +314,12 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <Link to="/dashboard">
+              <Link to="/dashboard/paymentHistory">
                 {" "}
                 <BiMoneyWithdraw className="inline text-white text-2xl mr-2" />
               </Link>
-              <NavLink to="/dashboard" className="hidden lg:inline">
-                My Payment List
+              <NavLink to="/dashboard/paymentHistory" className="hidden lg:inline">
+                Payment History
               </NavLink>
             </li>
           </ul>

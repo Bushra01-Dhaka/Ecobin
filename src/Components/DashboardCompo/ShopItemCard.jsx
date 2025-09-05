@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 const ShopItemCard = ({ eachShopItems }) => {
   const { user } = useContext(AuthContext);
   const {
+    _id,
     product_no,
     product_name,
     product_intro,
@@ -22,6 +23,7 @@ const ShopItemCard = ({ eachShopItems }) => {
 
   const handleSelectedCart = () => {
     const addedCart = {
+      product_id: _id,
       product_no: product_no,
       product_name: product_name,
       product_image: product_image,
