@@ -83,9 +83,9 @@ const Shop = () => {
         </h2>
       </div>
 
-      <div className="lg:p-10 p-6 flex justify-between items-start gap-6">
+      <div className="lg:p-10 p-6 flex justify-between items-start gap-4">
         {/* left side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
           {currentItems.map((item) => (
             <div key={item.product_no}>
               <div className="bg-white p-4 w-[320px] rounded-md shadow-2xl overflow-hidden">
@@ -118,36 +118,13 @@ const Shop = () => {
         </div>
 
         {/* right side */}
-        <div>
+        <div className="flex-1">
           <div className="bg-green-50 p-4 w-full h-[100px] flex justify-center items-center rounded-md shadow-2xl">
-            <label className="input">
-              <svg
-                className="h-[1em] opacity-50"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <g
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                  strokeWidth="2.5"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <path d="m21 21-4.3-4.3"></path>
-                </g>
-              </svg>
-              <input type="search" className="grow" placeholder="Search" />
-            </label>
+            <h2 className="bg-linear-to-r from-[#059212] to-[#9BEC00] font-bold text-transparent text-3xl bg-clip-text">Product Types</h2>
           </div>
 
-          <div className="my-6 py-6 bg-green-50 rounded-md shadow-2xl grid grid-cols-1 gap-4">
-            <div className="px-4 py-2 ">
-              <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
-                All Products
-              </p>
-            </div>
-
+          <div className="my-6 py-6 w-full  bg-green-50 rounded-md shadow-2xl grid grid-cols-1 gap-4">
+           
             <div className="px-4 py-2 ">
               <p className="text-md rounded-md  bg-linear-to-r from-[#059212] to-[#9BEC00] text-center font-semibold py-4 text-white">
                 Waste Bins

@@ -1,10 +1,9 @@
 import useAxiosPublic from "../Hooks/useAxiosPublic";
-import { SlSocialGoogle } from "react-icons/sl";
 import registerImg from "../assets/images/User registration.mp4";
-import { AiFillGithub } from "react-icons/ai";
 import { Link, useNavigate } from "react-router";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -207,8 +206,7 @@ const Register = () => {
             <p className="text-center">Or</p>
 
             <div className="py-6 flex justify-center items-center gap-4 cursor-pointer">
-              <SlSocialGoogle onClick={handleGoogleLogin} className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
-              <AiFillGithub className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
+             <p onClick={handleGoogleLogin} className="text-xl border-1 rounded-md shadow-2xl hover:text-[#059212] p-2"> <FcGoogle className="text-2xl inline transition-all duration-300  hover:text-[#059212] font-bold" /> Sign Up</p>
             </div>
 
             <p className="py-2 text-center">

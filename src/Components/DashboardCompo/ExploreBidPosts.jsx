@@ -8,7 +8,7 @@ const ExploreBidPosts = () => {
 
   useEffect(() => {
     axiosPublic.get(`/bidPost`).then((res) => {
-      setAllBidPost(res.data);
+      setAllBidPost(res.data.reverse());
     });
   }, []);
   console.log(allBidPost);

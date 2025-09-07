@@ -7,7 +7,7 @@ import { IoListSharp } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
 import myLogo from "../assets/images/logo.png";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaShopify, FaShoppingCart, FaUser, FaUsers } from "react-icons/fa";
+import { FaCartPlus, FaShopify, FaShoppingCart, FaUser, FaUsers } from "react-icons/fa";
 import { BiMoneyWithdraw } from "react-icons/bi";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { ImHammer2 } from "react-icons/im";
@@ -175,6 +175,18 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
+                 <li>
+                  <Link to="/dashboard/userSavedCarts">
+                    <FaCartPlus className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink
+                    to="/dashboard/userSavedCarts"
+                    className="hidden lg:inline"
+                  >
+                    User Saved Carts
+                  </NavLink>
+                </li>
+
                 <li>
                   <Link to="/dashboard/allCartPayment">
                     <GrServices className="inline text-white text-2xl mr-2" />
@@ -204,18 +216,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
 
-                  <li>
-                  <Link to="/dashboard/allServices">
-                    <MdMiscellaneousServices className="inline text-white text-xl mr-2" />
-                  </Link>
-                  <NavLink
-                    to="/dashboard/allServices"
-                    className="hidden lg:inline"
-                  >
-                    All Services
-                  </NavLink>
-                </li>
-
+                
                 <li>
                   <Link to="/dashboard/allRequestedServices">
                     <MdMiscellaneousServices className="inline text-white text-xl mr-2" />
@@ -261,6 +262,15 @@ const Dashboard = () => {
                     className="hidden lg:inline"
                   >
                     User Saved Carts
+                  </NavLink>
+                </li>
+
+                 <li>
+                  <Link to="/dashboard/allCartPayment">
+                    <GrServices className="inline text-white text-2xl mr-2" />
+                  </Link>
+                  <NavLink to="/dashboard/allCartPayment" className="hidden lg:inline">
+                    All Payment History
                   </NavLink>
                 </li>
 

@@ -15,7 +15,7 @@ const AllPaymentsList = () => {
     useEffect(() => {
         axiosPublic.get(`/payments`)
         .then((res) => {
-            setAllCartPayments(res.data);
+            setAllCartPayments(res.data.reverse());
         })
     },[axiosPublic, user?.email]);
 
@@ -24,7 +24,7 @@ const AllPaymentsList = () => {
       useEffect(() => {
       axiosPublic.get(`/servicePayments`)
       .then((res) => {
-        setUserServicePayment(res.data);
+        setUserServicePayment(res.data.reverse());
       })
     },[axiosPublic])
 
@@ -32,7 +32,39 @@ const AllPaymentsList = () => {
     
     return (
           <div>
-            <AdminHeaderPart title="Payment History" value={allCartPayments?.length}></AdminHeaderPart>
+            <AdminHeaderPart title="Payment History" value={(allCartPayments?.length) + (userServicePayment?.length)}></AdminHeaderPart>
+            
+            <h2 className="text-3xl text-orange-400 font-bold text-center">Total Service Payment: {totalServicePrice}  tk</h2>
+       
+        <div className="p-10">
+        <div className="overflow-x-auto rounded-md">
+          <table className="table  table-zebra rounded-md">
+            {/* head */}
+            <thead className="bg-[#059212] text-white text-center rounded-md">
+              <tr>
+                <th>No</th>
+                <th>Email</th>
+                <th>Total Price</th>
+                <th>Date</th>
+                <th>Transaction Id</th>
+                <th>Purchased Services</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+             {
+              userServicePayment.map((item, index) => <AllServicesPaymentTable
+              key={item?._id}
+              item={item}
+              index = {index}
+              userServicePayment = {userServicePayment}
+              setUserServicePayment = {setUserServicePayment}
+              ></AllServicesPaymentTable>)
+             }
+          </table>
+        </div>
+      </div>
+            
+            
             <div className="py-2">
                 <h2 className="text-3xl text-orange-400 font-bold text-center">Total Cart Payment: {totalPrice} tk</h2>
             </div>
@@ -64,35 +96,7 @@ const AllPaymentsList = () => {
         </div>
       </div>
 
-      <h2 className="text-3xl text-orange-400 font-bold text-center">Total Service Payment: {totalServicePrice}  tk</h2>
-       
-        <div className="p-10">
-        <div className="overflow-x-auto rounded-md">
-          <table className="table  table-zebra rounded-md">
-            {/* head */}
-            <thead className="bg-[#059212] text-white text-center rounded-md">
-              <tr>
-                <th>No</th>
-                <th>Email</th>
-                <th>Total Price</th>
-                <th>Date</th>
-                <th>Transaction Id</th>
-                <th>Purchased Services</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-             {
-              userServicePayment.map((item, index) => <AllServicesPaymentTable
-              key={item?._id}
-              item={item}
-              index = {index}
-              userServicePayment = {userServicePayment}
-              setUserServicePayment = {setUserServicePayment}
-              ></AllServicesPaymentTable>)
-             }
-          </table>
-        </div>
-      </div>
+      
 
         </div>
     );

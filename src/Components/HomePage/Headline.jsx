@@ -4,7 +4,7 @@ import { IoCartOutline } from 'react-icons/io5';
 
 const Headline = () => {
     return (
-        <div className='md:max-w-screen-2xl mx-auto bg-linear-to-r from-[#059212] to-[#F3FF90] p-4 text-white flex justify-between items-center px-6'>
+        <div className='md:max-w-screen-2xl mx-auto bg-linear-to-r from-[#059212] to-[#F3FF90] p-4 text-white flex justify-between items-center bg-fixed z-20 px-6' >
 
           <div className='flex justify-center items-center gap-2'>
           <FaPhoneAlt className='text-xl' />

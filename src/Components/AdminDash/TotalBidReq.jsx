@@ -29,11 +29,10 @@ const TotalBidReq = () => {
                 <th>Bidder Email</th>
                 <th>Poster Address</th>
                 <th>Bidder Address</th>
-                <th>Poster Status</th>
-                <th>Bidder Status</th>
-                <th>Send Mail</th>
-                <th>Action</th>
+                <th>Current Status</th>
                 <th>Disable Bidder Post</th>
+                <th>Delete Bid</th>
+                <th>Delete Post</th>
               </tr>
             </thead>
             {
@@ -41,6 +40,8 @@ const TotalBidReq = () => {
               key={item?._id}
               index={index}
               item={item}
+              allDoneBidRequest = {allDoneBidRequest}
+              setAllDoneBidRequest = {setAllDoneBidRequest}
               ></TotalBidTable>)
             }  
           </table>

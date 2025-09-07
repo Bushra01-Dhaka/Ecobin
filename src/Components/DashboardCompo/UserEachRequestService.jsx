@@ -2,8 +2,10 @@ import { Link } from "react-router";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
+import { FaDeleteLeft } from "react-icons/fa6";
+import { TiDeleteOutline } from "react-icons/ti";
 
-const UserEachRequestService = ({ item, index }) => {
+const UserEachRequestService = ({ item, index, bookingData, setBookingData }) => {
   const {
     _id,
     service,
@@ -100,14 +102,44 @@ const UserEachRequestService = ({ item, index }) => {
 
   console.log("Status: ", status);
 
+  const handleDelete = (id) => {
+      Swal.fire({
+           title: "Are you sure?",
+           text: "You won't be able to revert this!",
+           icon: "warning",
+           showCancelButton: true,
+           confirmButtonColor: "#059212",
+           cancelButtonColor: "#d33",
+           confirmButtonText: "Yes, delete it!",
+         }).then((result) => {
+           if (result.isConfirmed) {
+             axiosPublic.delete(`/requestServices/${id}`).then((res) => {
+               if (res.data.deletedCount > 0) {
+                 console.log("Error :", res)
+                 // ✅ update state without refetch
+                 setBookingData(bookingData?.filter((item) => item?._id !== id));
+                 Swal.fire({
+                   title: "Deleted!",
+                   text: "Your Service has been deleted.",
+                   icon: "success",
+                 });
+               }
+             });
+           }
+         });
+  }
+
   return (
     <div
       data-aos="fade-in"
       className="p-6 border-2 border-[#059212] rounded-lg shadow-2xl"
     >
-      <h3 className="text-2xl inline py-2 px-4 text-white rounded-md bg-[#059212]">
+     <div className="flex justify-between items-center">
+       <h3 className="text-2xl inline py-2 px-4 text-white rounded-md bg-[#059212]">
         {index + 1}
       </h3>
+      <p className=" "><TiDeleteOutline onClick={() => {handleDelete(_id)}} className="text-4xl inline text-red-600 hover:text-red-700"/></p>
+     </div>
       <div className="py-4">
         <p className="text-lg py-2">
           <span className="font-semibold">Service Name:</span> {item?.service}
@@ -159,42 +191,10 @@ const UserEachRequestService = ({ item, index }) => {
           <span className="font-semibold">Booking Date:</span> {item?.date}
         </p>
 
-        {/* <p className="text-lg py-2">
-          <span className="font-semibold">Status:</span>{" "}
-          <span className="rounded-full text-black font-bold text-xs p-2 bg-slate-400">
-            {item?.status}
-          </span>
-        </p> */}
-        {/* <p className="font-semibold text-lg py-2">Status: {isPosted ? <span className="text-[#059212]">Service Posted</span> : status}</p> */}
         <p className="font-semibold text-lg py-2">
           Status: <span className="text-[#059212]">{item?.status}</span>
         </p>
 
-        {/* {item?.service == "Mutual Benefit Program" ||
-        item?.service == "Construction & Demolition Waste" ||
-        item?.service == "Land Filling Service" ? (
-         <div onClick={handlePostService}>
-           <button
-            onClick={handleBidPost}
-            disabled={item?.status === "Service Posted"}
-            className={`btn btn-block btn-info bg-gradient-to-r from-[#1a6322] to-[#059212] rounded-md text-white h-[40px] mt-6 ${
-              item?.status === "Service Posted"
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:bg-gradient-to-l"
-            }`}
-          >
-            {item?.status === "Service Posted"
-              ? "Already Posted"
-              : "Post Now For Bid"}
-          </button>
-         </div>
-        ) : (
-          <Link>
-            <button className="btn btn-block btn-info bg-gradient-to-r from-[#1a6322] to-[#059212] ...  rounded-md text-white  h-[40px]  hover:bg-gradient-to-l border-0 hover:text-white mt-6">
-             Pay Now
-            </button>
-          </Link>
-        )} */}
 
         {item?.service == "Mutual Benefit Program" ||
         item?.service == "Construction & Demolition Waste" ||
@@ -202,7 +202,7 @@ const UserEachRequestService = ({ item, index }) => {
           <>
             {item?.status === "Bid Deal Successfully Done" ? (
               // ✅ Show Pay Now when deal is done
-              <Link to="/dashboard/payment">
+              <Link to="/dashboard/servicePayment">
                 <button className="btn btn-block btn-info bg-gradient-to-r from-[#1a6322] to-[#059212] rounded-md text-white h-[40px] mt-6 hover:bg-gradient-to-l">
                   Pay Now
                 </button>
@@ -210,6 +210,7 @@ const UserEachRequestService = ({ item, index }) => {
             ) : (
               // ✅ Default: Post for Bid button
               <div onClick={handlePostService}>
+              <Link>
                 <button
                   onClick={handleBidPost}
                   disabled={item?.status === "Service Posted"}
@@ -223,11 +224,12 @@ const UserEachRequestService = ({ item, index }) => {
                     ? "Already Posted"
                     : "Post Now For Bid"}
                 </button>
+              </Link>
               </div>
             )}
           </>
         ) : (
-          <Link to="/dashboard/payment">
+          <Link to="/dashboard/servicePayment">
             <button className="btn btn-block btn-info bg-gradient-to-r from-[#1a6322] to-[#059212] rounded-md text-white h-[40px] mt-6 hover:bg-gradient-to-l">
               Pay Now
             </button>

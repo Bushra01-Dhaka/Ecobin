@@ -33,6 +33,7 @@ import Payment from "../Components/Payment/Payment";
 import PaymentHistory from "../Components/Payment History/PaymentHistory";
 import AllPaymentsList from "../Components/Payment History/AllPaymentsList";
 import Payment1 from "../Components/Payment/Payment1";
+import ContactUs from "../Components/HomePage/ContactUs";
 
 const router = createBrowserRouter([
     {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
         {
           path:"myProfile",
           element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+        },
+        {
+          path:"contactUs",
+          element:<ContactUs></ContactUs>
         }
       ]
     },

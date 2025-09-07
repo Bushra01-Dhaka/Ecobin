@@ -57,6 +57,8 @@ const totalPrice = userRequests.reduce((total, item) => total + parseFloat(item.
                 key={item?._id}
                 index={index}
                 item={item}
+                bookingData = {bookingData}
+                setBookingData = {setBookingData}
                 ></UserEachRequestService>)
             }
         </div>

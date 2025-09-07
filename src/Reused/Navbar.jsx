@@ -36,7 +36,8 @@ const Navbar = () => {
 
   return (
     <div className="md:max-w-screen-2xl mx-auto bg-slate-50 flex justify-between items-center px-6 md:px-10 shadow-lg lg:py-2 py-4">
-      <div className="flex justify-center items-center">
+     <Link to="/">
+       <div className="flex justify-center items-center">
         <img
           className="w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] object-cover"
           src={logo}
@@ -46,6 +47,7 @@ const Navbar = () => {
           Eco<span className="text-[#059212]">bin</span>
         </p>
       </div>
+     </Link>
 
       <div
         className={`md:static md:min-h-fit absolute ${
@@ -68,22 +70,10 @@ const Navbar = () => {
           </li>
 
 
-          {/* <li className="text-lg text-black hover:text-[#059212] font-semibold">
-            <Link to="/packages">Packages</Link>
-          </li> */}
+          <li className="text-lg text-black hover:text-[#059212] font-semibold">
+            <Link to="/contactUs">Contact Us</Link>
+          </li>
 
-          {/* Dashboard for Moderator and Admin */}
-          {/* {userData?.status === "user" && !(userData?.status === "Admin")? (
-            <li className="text-lg text-black hover:text-[#059212] font-semibold">
-              <Link to="/dashboard/dashContent">Control Panel</Link>
-            </li>
-          ):
-          (
-            <li className="text-lg text-black hover:text-[#059212] font-semibold">
-              <Link to="/dashboard/adminDashboardContent">Admin Control Panel</Link>
-            </li>
-          )
-          } */}
         </ul>
       </div>
 
@@ -119,29 +109,7 @@ const Navbar = () => {
         </>
       )}
 
-      {/* <div className="flex justify-center items-center gap-2">
-        <Link to="login">
-          <button
-            className="btn myBtn font-semibold bg-linear-to-r from-[#059212] to-[#9BEC00] text-white hover:border-0  rounded-full"
-            onMouseMove={handleMouseMove}
-            ref={btnRef}
-          >
-            <span>Log in</span>
-          </button>
-        </Link>
-
-        {menuOpen ? (
-          <MdClose
-            onClick={onToggleMenu}
-            className="text-3xl cursor-pointer md:hidden text-slate-900"
-          />
-        ) : (
-          <MdMenu
-            onClick={onToggleMenu}
-            className="text-3xl cursor-pointer md:hidden text-slate-900"
-          />
-        )}
-      </div> */}
+     
     </div>
   );
 };

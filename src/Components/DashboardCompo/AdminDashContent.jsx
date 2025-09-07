@@ -90,7 +90,7 @@ const AdminDashContent = () => {
                 <FaSackDollar className="text-5xl mx-auto text-green-600" />
               </p>
               <p className="py-2 text-2xl text-center">Total Payments</p>
-              <p className="text-2xl mx-auto font-bold text-green-600">{allCartPayments?.length}</p>
+              <p className="text-2xl mx-auto font-bold text-green-600">{(allCartPayments?.length) + (userServicePayment?.length)}</p>
             </div>
 
           </div>

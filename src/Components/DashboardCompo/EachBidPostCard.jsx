@@ -140,6 +140,7 @@ const EachBidPostCard = ({ item }) => {
           showConfirmButton: false,
           timer: 1500,
         });
+        
       }
       setIsBidClicked(true); // ✅ disable button
       navigate("/dashboard/exploreBidPosts")

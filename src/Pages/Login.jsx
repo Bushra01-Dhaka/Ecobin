@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { FcGoogle } from "react-icons/fc";
 
 
 
@@ -49,7 +50,7 @@ const Login = () => {
     })
      .catch((error) => {
         console.error(error);
-        setLogInError("Failed to Login!");
+        setLogInError("Please Provide Valid Email & Password to Login!");
         Swal("Logged in failed! Please provide valid email & password.", {
           button: "Ok",
         });
@@ -159,8 +160,7 @@ const Login = () => {
             <p className="text-center">Or</p>
 
             <div className="py-6 flex justify-center items-center gap-4 cursor-pointer">
-              <SlSocialGoogle onClick={handleGoogleLogin} className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
-              <AiFillGithub className="text-3xl transition-all duration-300 hover:text-[#059212] font-bold" />
+              <p onClick={handleGoogleLogin} className="text-xl hover:text-[#059212] border rounded-md shadow-2xl p-2"><FcGoogle className="text-2xl inline transition-all duration-300 hover:text-[#059212] font-bold" /> Login</p>
             </div>
 
             <p className="py-2 text-center">
