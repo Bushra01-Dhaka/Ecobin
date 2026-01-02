@@ -100,15 +100,6 @@ ECOBIN offers a **centralized digital platform** that:
 
 ---
 
-## 🎓 Academic Information
-
-- Project Type: Final Year Project
-
-- Department: Computer Science & Engineering
-
-- Institution: Dhaka City College
-
-- Supervisor: Shamima Sultana (Associate Professor, CSE)
 
 ## 🙌 Author
 
